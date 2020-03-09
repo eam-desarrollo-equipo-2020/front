@@ -1,1 +1,29 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <!-- Navbar content -->
+    <span class="navbar-brand" [routerLink]="['home']">
+        <!-- <img src="/src/app/resources/img/corona.svg" width="30" height="30" class="d-inline-block align-top"
+            alt=""/> -->
+        <i class="fas fa-crown fa-2x"></i>
+    </span>
+
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+    <ul class="nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['home']">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">nav-bar 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">nav-bar 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">nav-bar 3</a>
+        </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']">Iniciar Sesión</button>
+    </form>
+    <!-- </div> -->
+</nav>
 <router-outlet></router-outlet>
