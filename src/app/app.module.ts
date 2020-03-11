@@ -7,6 +7,20 @@ import { ComponentsComponent } from './components/components.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginonComponent } from './components/loginon/loginon.component';
+import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
+// import { Observable, Subject } from 'rxjs';
+// import {FlashMessagesService} from 'angular2-flash-messages';
+// import { FlashMessagesModule } from 'angular2-flash-messages';
+
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { AngularFirestore } from '@angular/fire/firestore';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +28,20 @@ import { LoginonComponent } from './components/loginon/loginon.component';
     ComponentsComponent,
     LoginComponent,
     HomeComponent,
-    LoginonComponent
+    LoginonComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
+    // FlashMessagesModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService, AngularFirestore],
+  // ,FlashMessagesService
   bootstrap: [AppComponent]
 })
 export class AppModule { }

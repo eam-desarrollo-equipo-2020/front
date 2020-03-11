@@ -10,20 +10,22 @@
                     <h4 class="text-primary">Login</h4>
                 </div>
                 <div class="card-body text-primary">
-                    <form>
+                    <form (submit)="onSubmitLogin()">
+                        <!-- (submit)="onSubmitLogin()" -->
                         <div class="form-group">
-                            <input name="mail" id="mail" type="text" class="border-primary form-control"
-                                placeholder="Ingrese el usuario" maxlength="10" required="required"
+                            <input name="email" id="email" [(ngModel)]="email" type="text" class="border-primary form-control"
+                                placeholder="Ingrese el Correo" maxlength="20" required="required"
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
                         </div>
                         <div class="form-group">
-                            <input type="password" class="border-primary form-control"
-                                placeholder="Ingrese la contraseña" maxlength="4" required="required">
+                            <input name="password" id="password" [(ngModel)]="password" type="password" class="border-primary form-control"
+                                placeholder="Ingrese la contraseña" maxlength="6" required="required">
                         </div>
                         <!-- si agrega este campo al button podra navegar a la siguiente pagina si se Logea  -->
                         <!-- routerLink="/loginon" -->
                         <button type="submit" class="btn btn-outline-primary">
+                            <!-- (click)="onSubmitLogin()" -->
                             <i class="fas fa-sign-in-alt"></i>
                             Ingresar
                         </button>
