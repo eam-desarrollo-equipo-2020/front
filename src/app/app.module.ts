@@ -21,6 +21,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CompanyComponent } from './components/company/company.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     HomeComponent,
     LoginonComponent,
-    NavbarComponent
+    NavbarComponent,
+    CompanyComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

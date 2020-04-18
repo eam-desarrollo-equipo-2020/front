@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginonComponent } from './components/loginon/loginon.component';
+import {CompanyComponent} from './components/company/company.component';
+import { CategoryComponent } from './components/category/category.component';
 // import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
@@ -19,6 +21,14 @@ const routes: Routes = [
     path: "loginon",
     component: LoginonComponent
   },
+  {
+    path: "company",
+    component: CompanyComponent
+  },
+  {
+  path: "category",
+  component: CategoryComponent
+},
   {
     path: "",
     redirectTo: "home", pathMatch: "full"
