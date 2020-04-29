@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
             this.authService.setUser(data.user);
             const token = data.id;
             this.authService.setToken(token);
-            this.router.navigate(['/loginon']);
+            this.router.navigate(['/home']);
             // location.reload();
             this.isError = false;
           },
