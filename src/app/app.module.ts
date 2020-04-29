@@ -24,6 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CompanyComponent } from './components/company/company.component';
 import { CategoryComponent } from './components/category/category.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +43,11 @@ import { CategoryComponent } from './components/category/category.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
     // FlashMessagesModule.forRoot()
   ],
-  providers: [AuthService, AngularFirestore],
+  providers: [AuthService, AngularFirestore, HttpClientModule],
   // ,FlashMessagesService
   bootstrap: [AppComponent]
 })
