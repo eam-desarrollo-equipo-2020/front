@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+// import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -8,28 +9,49 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public isLogin: boolean;
-  public nombreUsuario: string;
-  public emailUsuario: string;
+  // public isLogged: false;
+  // public nombreUsuario: string;
+  // public emailUsuario: string;
 
-  constructor(
-    public authService: AuthService
-  ) { }
+  constructor(public authService: AuthService) { }
+
+  public isLogged = false;
 
   ngOnInit(): void {
-    this.authService.getAuth().subscribe(auth => {
-      if (auth) {
-        this.isLogin = true;
-        this.nombreUsuario = auth.displayName;
-        this.emailUsuario = auth.email;
-      } else {
-        this.isLogin = false;
-      }
-    });
+
+    // if (this.authService.getCurrentUser() === null) {
+    //   this.isLogged = false;
+    // } else {
+    //   this.isLogged = true;
+    // }
+    // console.log(this.isLogged);
+
+    this.onCheckUser();
+    // this.onClickLogout();
+
+    // this.authService.getAuth().subscribe(auth => {
+    //   if (auth) {
+    //     this.isLogin = true;
+    //     this.nombreUsuario = auth.displayName;
+    //     this.emailUsuario = auth.email;
+    //   } else {
+    //     this.isLogin = false;
+    //   }
+    // });
   }
 
-  onClickLogout() {
+  onCheckUser(): void {
+    if (this.authService.getCurrentUser() === null) {
+      this.isLogged = false;
+    } else {
+      this.isLogged = true;
+    }
+    console.log(this.isLogged);
+  }
+
+  onClickLogout(): void {
     this.authService.logout();
+    location.reload();
   }
 
 }

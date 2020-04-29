@@ -24,13 +24,13 @@ export class AuthService {
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   });
-
-  loginuser(email: string, password: string): Observable<any> {
-    const url_api = "http://173.230.136.51:3000/api/login?include=user";
+  // ?include=user
+  loginuser(email: string, pwd: string): Observable<any> {
+    const url_api = "http://173.230.136.51:3000/api/login";
     return this.htttp
       .post<UserInterface>(
         url_api,
-        { email, password },
+        { email, pwd },
         { headers: this.headers }
       )
       .pipe(map(data => data));
@@ -61,7 +61,7 @@ export class AuthService {
 
   /* loginEmail(email: string, pass: string) {
     return new Promise((resolve, reject) => {
-      this.afAuth.auth.signInWithEmailAndPassword(email, pass)
+      this.afAuth.auth.signInWithEmailAndpwd(email, pass)
         .then(userData => resolve(userData),
           err => reject(err));
     });
@@ -77,13 +77,14 @@ export class AuthService {
      return this.afAuth.auth.signOut();
    } */
 
-  logout() {
+   logout() {
     let accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken);
     const url_api = `http://173.230.136.51:3000/api/logout?access_token=${accessToken}`;
     console.log(url_api);
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
-    return this.htttp.post<UserInterface>(url_api, { headers: this.headers });
+    return this.htttp.put<UserInterface>(url_api, { headers: this.headers });
   }
 
 }

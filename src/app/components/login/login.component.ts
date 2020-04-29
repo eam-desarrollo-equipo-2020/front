@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { UserInterface } from 'src/app/models/user-interface';
+import { Location } from '@angular/common';
 import { isError } from 'util';
+import { NgForm } from '@angular/forms';
 // import {FlashMessagesService} from 'angularfire2-flash-messages';
 
 @Component({
@@ -13,33 +15,46 @@ import { isError } from 'util';
 })
 export class LoginComponent implements OnInit {
 
-  public email: string;
-  public password: string;
+  // public email: string;
+  // public pwd: string;
 
   constructor(
     public authService: AuthService,
     public router: Router,
+    private location: Location
     // public flashMensaje: FlashMessagesService
   ) { }
 
-  private user: UserInterface;
+  public user: UserInterface = {
+    email: "",
+    pwd: ""
+  };
+  public isError = false;
 
   ngOnInit(): void {
   }
 
-  onSubmitLogin() {
-    return this.authService.loginuser(this.user.email, this.user.password)
-      .subscribe(
-        data => {
-          this.authService.setUser(data.user);
-          const token = data.id;
-          this.authService.setToken(token);
-          this.router.navigate(['/home']);
-        },
-        error => this.onIsError()
-      );
+  onSubmitLogin(form: NgForm) {
+    if (form.valid) {
+      console.log(this.user);
+      return this.authService
+        .loginuser(this.user.email, this.user.pwd)
+        .subscribe(
+          data => {
+            this.authService.setUser(data.user);
+            const token = data.id;
+            this.authService.setToken(token);
+            this.router.navigate(['/loginon']);
+            // location.reload();
+            this.isError = false;
+          },
+          error => this.onIsError()
+        );
+    } else {
+      this.onIsError();
+    }
 
-    /*  this.authService.loginEmail(this.email, this.password)
+    /*  this.authService.loginEmail(this.email, this.pwd)
      .then( (res) => {
        this.router.navigate(['/home']);
        // this.flashMensaje.show('Usuario logado correctamente.',
@@ -51,6 +66,13 @@ export class LoginComponent implements OnInit {
        console.log(err)
        this.router.navigate(['/login']);
      }); */
+  }
+
+  onIsError(): void {
+    this.isError = true;
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
   }
 
 
