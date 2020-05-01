@@ -18,12 +18,14 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active" *ngIf="!isLogin">
-                    <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']">Iniciar Sesión</button>
+                <li class="nav-item" *ngIf="!isLogged">
+                    <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']">Iniciar
+                        Sesión</button>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active" *ngIf="isLogin">
+                <!-- *ngIf="isLogged" -->
+                <li class="nav-item" *ngIf="!isLogged">
                     <a class="btn btn-outline-danger my-2 my-sm-0" href="#" (click)="onClickLogout()">Cerrar Sesión</a>
                 </li>
             </ul>

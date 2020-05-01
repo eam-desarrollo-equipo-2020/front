@@ -10,17 +10,22 @@
                     <h4 class="text-primary">Login</h4>
                 </div>
                 <div class="card-body text-primary">
-                    <form (submit)="onSubmitLogin()">
+                    <form #formLogin="ngForm" (submit)="onSubmitLogin(formLogin)">
+                        <!-- <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1> -->
+                        <div class="alert alert-danger" role="alert" *ngIf="isError">
+                            Ingresado mal el Usuario o la Contraseña!
+                        </div>
                         <!-- (submit)="onSubmitLogin()" -->
                         <div class="form-group">
-                            <input name="email" id="email" [(ngModel)]="email" type="text" class="border-primary form-control"
-                                placeholder="Ingrese el Correo" maxlength="20" required="required"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            <input name="email" id="email" [(ngModel)]="user.email" type="text"
+                                class="border-primary form-control" placeholder="Ingrese el Correo" maxlength="20"
+                                required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
                         </div>
                         <div class="form-group">
-                            <input name="password" id="password" [(ngModel)]="password" type="password" class="border-primary form-control"
-                                placeholder="Ingrese la contraseña" maxlength="6" required="required">
+                            <input name="pwd" id="pwd" [(ngModel)]="user.pwd" type="password"
+                                class="border-primary form-control" placeholder="Ingrese la contraseña" maxlength="6"
+                                required="required">
                         </div>
                         <!-- si agrega este campo al button podra navegar a la siguiente pagina si se Logea  -->
                         <!-- routerLink="/loginon" -->
@@ -31,7 +36,7 @@
                         </button>
                     </form>
                 </div>
-                <a href="#" class="card-link">Recuperar contraseña</a>
+                <a href="#" class="card-link">Registrar Usuario</a>
             </div>
         </div>
     </div>
