@@ -25,7 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CompanyComponent } from './components/company/company.component';
 import { CategoryComponent } from './components/category/category.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginonComponent,
     NavbarComponent,
     CompanyComponent,
-    CategoryComponent
+    CategoryComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

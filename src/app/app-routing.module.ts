@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginonComponent } from './components/loginon/loginon.component';
 import { CompanyComponent } from './components/company/company.component';
 import { CategoryComponent } from './components/category/category.component';
+import { UserComponent } from './components/user/user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 // import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "category",
     component: CategoryComponent
+  },
+  {
+    path: "login/user",
+    component: UserComponent
   },
   {
     path: "",
