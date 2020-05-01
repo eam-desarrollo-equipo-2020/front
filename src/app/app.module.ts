@@ -26,6 +26,8 @@ import { CompanyComponent } from './components/company/company.component';
 import { CategoryComponent } from './components/category/category.component';
 
 import { UserComponent } from './components/user/user.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProductoComponent } from './components/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { UserComponent } from './components/user/user.component';
     NavbarComponent,
     CompanyComponent,
     CategoryComponent,
-    UserComponent
+    UserComponent,
+    PerfilComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,

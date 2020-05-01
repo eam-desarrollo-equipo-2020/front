@@ -6,6 +6,8 @@ import { LoginonComponent } from './components/loginon/loginon.component';
 import { CompanyComponent } from './components/company/company.component';
 import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProductoComponent } from './components/producto/producto.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 // import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -38,6 +40,14 @@ const routes: Routes = [
   {
     path: "login/user",
     component: UserComponent
+  },
+  {
+    path: "perfil",
+    component:PerfilComponent
+  },
+  {
+    path: "producto",
+    component: ProductoComponent
   },
   {
     path: "",
