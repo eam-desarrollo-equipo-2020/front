@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInterface } from 'src/app/models/user-interface';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthService,
+    public router: Router
+  ) { }
+
+  public user: UserInterface = {
+    email: "",
+    pwd: ""
+  };
 
   ngOnInit(): void {
+  }
+
+  onRegister(): void {
+    this.authService
+      .registerUser(this.user.email, this.user.pwd)
+      .subscribe(
+        data => {
+          this.authService.setUser(data.user);
+          const token = data.id;
+          this.authService.setToken(token);
+          this.router.navigate(['/login']);
+          // location.reload();
+        },
+      );
   }
 
 }

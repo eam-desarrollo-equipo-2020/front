@@ -7,6 +7,7 @@ import { UserInterface } from 'src/app/models/user-interface';
 import { isNullOrUndefined } from "util";
 import { Observable } from "rxjs/internal/Observable";
 import { map } from "rxjs/operators";
+import { Global } from './global';
 //import { UserInterface } from "../models/user-interface";
 // import { map } from "rxjs/operators";
 // import 'rxjs/add/operator/catch';
@@ -16,13 +17,15 @@ import { map } from "rxjs/operators";
 })
 export class AuthService {
 
+  public url: string;
+
   constructor(
     public afAuth: AngularFireAuth,
     private htttp: HttpClient
-  ) { }
+  ) { this.url = Global.url; }
 
   headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   });
   // ?include=user
   loginuser(email: string, pwd: string): Observable<any> {
@@ -77,7 +80,7 @@ export class AuthService {
      return this.afAuth.auth.signOut();
    } */
 
-   logout() {
+  logout() {
     let accessToken = localStorage.getItem("accessToken");
     console.log(accessToken);
     const url_api = `http://173.230.136.51:3000/api/logout?access_token=${accessToken}`;
@@ -85,6 +88,26 @@ export class AuthService {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
     return this.htttp.put<UserInterface>(url_api, { headers: this.headers });
+  }
+
+  // company
+  create(company): Observable<any> {
+    let params = JSON.stringify(company);
+    // let headers = new HttpHeaders().set('Content-Type', ' application/json');
+
+    return this.htttp.post(this.url + 'create-company', params, { headers: this.headers });
+  }
+
+  // register user
+  registerUser(email: string, pwd: string): Observable<any> {
+    const url_api = "http://173.230.136.51:3000/api/register";
+    return this.htttp
+      .post<UserInterface>(
+        url_api,
+        { email, pwd },
+        { headers: this.headers }
+      )
+      .pipe(map(data => data));
   }
 
 }

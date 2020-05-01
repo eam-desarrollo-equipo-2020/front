@@ -1,14 +1,10 @@
-export class Company{
+export interface CompanyInterface {
 
+    id_company?: string;
+    razon_social?: string;
+    ciudad?: string;
+    departamento?: string;
+    objeto_social?: string;
+    representante_legal?: string;
 
-    constructor(
-
-    public id_company:string,
-    public razon_social:string,
-    public ciudad:string,
-    public departamento:string,
-    public objeto_social:string,
-    public representante_legal:string,
-
-    ){}
 }
