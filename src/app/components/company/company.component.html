@@ -2,27 +2,47 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="mid-form" #companyForm="ngForm" (ngSubmit)="onSubmit()">
                     <fieldset>
                         <legend class="text-center header">Registro Empresa</legend>
-
+                  
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="Razon" name="name" type="text" placeholder="Razon Social" class="form-control" required> 
+                                <input id="id_company" name="id_company" type="text"  #id="ngModel" [(ngModel)]="company.id_company" placeholder="NIT" class="form-control" required> 
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="Representante" name="name" type="text" placeholder="Representante Legal" class="form-control" required>
+                                <input id="razon_social" name="razon_social" type="text"  #razon="ngModel" [(ngModel)]="company.razon_social" placeholder="Razon Social" class="form-control" required> 
                             </div>
                         </div>
-
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <select class="form-control" id="ciudad" required> 
+                                <input id="departamento" name="departamento" type="text"  #departamento="ngModel" [(ngModel)]="company.departamento" placeholder="departamento" class="form-control" required> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                                <input id="ciudad" name="ciudad" type="text"  #ciudad="ngModel" [(ngModel)]="company.ciudad" placeholder="ciudad" class="form-control" required> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                                <input id="representante_legal" name="representante_legal" type="text"  #repre="ngModel" [(ngModel)]="company.representante_legal" placeholder="Representante" class="form-control" required> 
+                            </div>
+                        </div>
+
+                        
+
+                    <!--    <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                                <select class="form-control" id="ciudad" name="ciudad" required> 
                                     <option>Seleccione una Opcion</option>
                                     <option>Armenia</option>
                                     <option>Pereira</option>
@@ -33,26 +53,26 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <select class="form-control" id="Departamento" required> 
+                                <select class="form-control" id="departamento" name="departamento" required> 
                                     <option>Seleccione una Opcion</option>
                                     <option>Quindio</option>
                                     <option>Risaralda</option>
                                   </select>
                             </div>
-                        </div>
+                        </div>-->
 
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="ObjetoS" name="name" type="text" placeholder="Objeto Social" class="form-control" >
+                                <input id="objeto_social" name="objeto_social" type="text"  #objeto="ngModel" [(ngModel)]="company.objeto_social" placeholder="Objeto social" class="form-control" required> 
                             </div>
                         </div>
 
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                                <button type="submit" class="btn btn-primary btn-lg" [disabled]="companyForm.invalid" >Registrar</button>
                             </div>
                         </div>
                     </fieldset>

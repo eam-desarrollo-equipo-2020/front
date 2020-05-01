@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginonComponent } from './components/loginon/loginon.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 // import { Observable, Subject } from 'rxjs';
 // import {FlashMessagesService} from 'angular2-flash-messages';
 // import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -41,7 +42,8 @@ import { CategoryComponent } from './components/category/category.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
     // FlashMessagesModule.forRoot()
   ],
   providers: [AuthService, AngularFirestore],
