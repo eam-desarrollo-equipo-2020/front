@@ -26,14 +26,14 @@ export class CompanyComponent implements OnInit {
     // this.company = new Company('', '', '', '', '', '');
   }
 
-  // public compa: Company = {
-  //   id_company: "",
-  //   razon_social: "",
-  //   ciudad: "",
-  //   departamento: "",
-  //   objeto_social: "",
-  //   representante_legal: ""
-  // };
+  public compa: CompanyInterface = {
+    id_company: "",
+    razon_social: "",
+    ciudad: "",
+    departamento: "",
+    objeto_social: "",
+    representante_legal: ""
+  };
 
   ngOnInit() {
     //  console.log(this._CompanyService.holaMundo());
@@ -48,44 +48,46 @@ export class CompanyComponent implements OnInit {
   }
   //)
 
-  onSubmit(companyForm: NgForm): void {
-    console.log(companyForm.value);
-    if (companyForm.value.id_company == null) {
-      // nuevo
-      this.authService.create(companyForm.value).subscribe(empresa => location.reload());
-    } else {
-      console.log("UPDATE EMPRESA");
-    }
+  onSubmit(): void {
+    // companyForm: NgForm
+    // console.log(companyForm.value);
     // if (companyForm.value.id_company == null) {
-    //   this.authService.create(companyForm.value)
-    //     .subscribe(
-    //       response => {
-    //         if (response.status == 'success') {
-    //           console.log("this.company")
-    //           // console.log(this.compa)
-    //           this.status = 'success ';
-    //           // this.compa = response.compa;
-    //           // const token = response.id;
-    //           // this.authService.setToken(token);
-    //           console.log(response);
-    //           location.reload();
-    //         } else {
-    //           this.status = 'error'
-    //         }
-    //       },
-    //       error => {
-    //         console.log(error);
-    //         this.status = 'error';
-    //       }
-    //     )
+    // nuevo
+    //   this.authService.create(companyForm.value).subscribe(empresa => location.reload());
+    // } else {
+    //   console.log("UPDATE EMPRESA");
+    // }
+    // if (compa.id_company == null) {
+    this.authService.create(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento, this.compa.objeto_social, this.compa.representante_legal)
+      .subscribe(
+        response => {
+          if (response.status == 'success') {
+            console.log("this.company")
+            // console.log(this.compa)
+            this.status = 'success ';
+            // this.compa = response.compa;
+            // const token = response.id;
+            // this.authService.setToken(token);
+            console.log(response);
+            location.reload();
+          } else {
+            this.status = 'error'
+          }
+        },
+        error => {
+          console.log(error);
+          this.status = 'error';
+        }
+      )
     // NEW
     // this.dataApiService.saveBook(bookForm.value).subscribe(book => location.reload());
     // } else {
     // update
+    // console.log("UPDATE")
     // }
     // console.log(this.compa)
-    // this.authService.create(this.company.id_company, this.company.razon_social, this.company.ciudad, this.company.departamento,
-    //   this.company.objeto_social, this.company.representante_legal)
+    // this.authService.create(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento,
+    //   this.compa.objeto_social, this.compa.representante_legal)
     //   .subscribe(
     //     company => location.reload()
     //   );

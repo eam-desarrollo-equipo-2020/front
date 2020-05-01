@@ -46,10 +46,14 @@ export class AuthService {
 
   setToken(token): void {
     localStorage.setItem("accessToken", token);
+    console.log("SetToken");
+    console.log(token);
   }
 
   getToken() {
-    return localStorage.getItem("accessToken");
+    let tmp = localStorage.getItem("accessToken");
+    return tmp;
+    // return localStorage.getItem("accessToken");
   }
 
   getCurrentUser(): UserInterface {
@@ -83,7 +87,7 @@ export class AuthService {
   logout() {
     let accessToken = localStorage.getItem("accessToken");
     console.log(accessToken);
-    const url_api = `http://173.230.136.51:3000/api/logout?access_token=${accessToken}`;
+    const url_api = `http://173.230.136.51:3000/api/logout?accessToken=${accessToken}`;
     console.log(url_api);
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");

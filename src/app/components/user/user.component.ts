@@ -29,7 +29,8 @@ export class UserComponent implements OnInit {
       .subscribe(
         data => {
           this.authService.setUser(data.user);
-          const token = data.id;
+          // accessToken
+          const token = data.accessToken;
           this.authService.setToken(token);
           this.router.navigate(['/login']);
           // location.reload();

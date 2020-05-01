@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginonComponent } from './components/loginon/loginon.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { Observable, Subject } from 'rxjs';
 // import {FlashMessagesService} from 'angular2-flash-messages';
 // import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -28,6 +28,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,11 @@ import { ProductoComponent } from './components/producto/producto.component';
     HttpClientModule
     // FlashMessagesModule.forRoot()
   ],
-  providers: [AuthService, AngularFirestore, HttpClientModule],
+  providers: [AuthService, AngularFirestore, HttpClientModule, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   // ,FlashMessagesService
   bootstrap: [AppComponent]
 })

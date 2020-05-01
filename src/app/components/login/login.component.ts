@@ -41,8 +41,11 @@ export class LoginComponent implements OnInit {
         .loginuser(this.user.email, this.user.pwd)
         .subscribe(
           data => {
+            // console.log(data.user.accessToken);
             this.authService.setUser(data.user);
-            const token = data.id;
+            const token = data.user.accessToken;
+            console.log("token en el component");
+            console.log(token);
             this.authService.setToken(token);
             this.router.navigate(['/home']);
             // location.reload();
