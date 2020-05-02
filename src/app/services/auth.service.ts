@@ -95,11 +95,23 @@ export class AuthService {
   }
 
   // company
-  create(company): Observable<any> {
+  createComp(company): Observable<any> {
     let params = JSON.stringify(company);
     // let headers = new HttpHeaders().set('Content-Type', ' application/json');
 
     return this.htttp.post(this.url + 'create-company', params, { headers: this.headers });
+  }
+
+  // category
+  createCate(category): Observable<any> {
+    let params = JSON.stringify(category);
+    return this.htttp.post(this.url + 'create-prod_cat', params, { headers: this.headers });
+  }
+
+  // producto
+  createProd(producto): Observable<any> {
+    let params = JSON.stringify(producto);
+    return this.htttp.post(this.url + 'create-product', params, { headers: this.headers });
   }
 
   // register user

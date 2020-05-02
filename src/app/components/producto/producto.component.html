@@ -2,44 +2,56 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="mid-form" (submit)="onSubmit()">
                     <fieldset>
                         <legend class="text-center header">Registro Producto</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="nombre" name="name" type="text" placeholder="Nombre" class="form-control" required> 
+                                <input id="name" name="name" type="text" [(ngModel)]="prod.name"
+                                placeholder="Nombre" class="form-control"
+                                required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="descripcion" name="name" type="text" placeholder="Descripción" class="form-control" required>
+                                <input id="detail" name="name" type="text" [(ngModel)]="prod.detail"
+                                placeholder="Descripcion" class="form-control"
+                                required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="precio" name="name" type="number" placeholder="Precio" class="form-control" required>
+                                <input id="price" name="name" type="number" [(ngModel)]="prod.price"
+                                placeholder="Precio" class="form-control"
+                                required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="lote" name="name" type="text" placeholder="Lote" class="form-control" required>
+                                <input id="lot" name="name" type="text" [(ngModel)]="prod.lot"
+                                placeholder="Lote" class="form-control"
+                                required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="calidad" name="name" type="number" placeholder="Calidad" class="form-control" required>
+                                <input id="quantity" name="name" type="number" [(ngModel)]="prod.quantity"
+                                placeholder="Calidad" class="form-control"
+                                required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="categoria" name="name" type="text" placeholder="Categoria" class="form-control" required>
+                                <input id="category" name="name" type="number" [(ngModel)]="prod.category"
+                                placeholder="Categoria" class="form-control"
+                                required>
                             </div>
                         </div>
 

@@ -58,7 +58,7 @@ export class CompanyComponent implements OnInit {
     //   console.log("UPDATE EMPRESA");
     // }
     // if (compa.id_company == null) {
-    this.authService.create(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento, this.compa.objeto_social, this.compa.representante_legal)
+    this.authService.createComp(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento, this.compa.objeto_social, this.compa.representante_legal)
       .subscribe(
         response => {
           if (response.status == 'success') {

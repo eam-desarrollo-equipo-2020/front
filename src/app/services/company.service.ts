@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Company } from '../Models/company';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Global } from './global';
@@ -62,7 +61,7 @@ export class CompanyService {
     // empresa: CompanyInterface
 
 
-    create(id_company: string,
+    createComp(id_company: string,
         razon_social: string,
         ciudad: string,
         departamento: string,

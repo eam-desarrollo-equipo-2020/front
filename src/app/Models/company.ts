@@ -1,5 +1,4 @@
 export interface CompanyInterface {
-
     id_company?: string;
     razon_social?: string;
     ciudad?: string;
