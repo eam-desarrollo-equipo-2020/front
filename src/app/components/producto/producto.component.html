@@ -2,81 +2,74 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
+                <legend class="text-center header">Registro Producto</legend>
                 <form class="mid-form" (submit)="onSubmit()">
-                    <fieldset>
-                        <legend class="text-center header">Registro Producto</legend>
+                    <!-- <fieldset> -->
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                        <div class="col-md-8">
+                            <input id="name" name="name" type="text" [(ngModel)]="prod.name" placeholder="Nombre"
+                                class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                        <div class="col-md-8">
+                            <input id="detail" name="name" type="text" [(ngModel)]="prod.detail"
+                                placeholder="Descripcion" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                        <div class="col-md-8">
+                            <input id="price" name="name" type="number" [(ngModel)]="prod.price" placeholder="Precio"
+                                class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                        <div class="col-md-8">
+                            <input id="lot" name="name" type="text" [(ngModel)]="prod.lot" placeholder="Lote"
+                                class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                        <div class="col-md-8">
+                            <input id="quantity" name="name" type="number" [(ngModel)]="prod.quantity"
+                                placeholder="Calidad" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                        <div class="col-md-8">
+                            <input id="category" name="name" type="number" [(ngModel)]="prod.category"
+                                placeholder="Categoria" class="form-control" required>
+                        </div>
+                    </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
-                                <input id="name" name="name" type="text" [(ngModel)]="prod.name"
-                                placeholder="Nombre" class="form-control"
-                                required>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
                         </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
-                                <input id="detail" name="name" type="text" [(ngModel)]="prod.detail"
-                                placeholder="Descripcion" class="form-control"
-                                required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
-                                <input id="price" name="name" type="number" [(ngModel)]="prod.price"
-                                placeholder="Precio" class="form-control"
-                                required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
-                                <input id="lot" name="name" type="text" [(ngModel)]="prod.lot"
-                                placeholder="Lote" class="form-control"
-                                required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
-                                <input id="quantity" name="name" type="number" [(ngModel)]="prod.quantity"
-                                placeholder="Calidad" class="form-control"
-                                required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
-                                <input id="category" name="name" type="number" [(ngModel)]="prod.category"
-                                placeholder="Categoria" class="form-control"
-                                required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
-                            </div>
-                        </div>
-                    </fieldset>
+                    </div>
+                    <!-- </fieldset> -->
                 </form>
 
                 <div>
                     <table class="table">
                         <thead>
-                          <tr>
-                            <th scope="col">NOMBRE </th>
-                            <th scope="col">DESCRIPCIÓN</th>
-                            <th scope="col">PRECIO</th>
-                            <th scope="col">LOTE</th>
-                            <th scope="col">CALIDAD</th>
-                            <th scope="col">CATEGORIA</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">NOMBRE </th>
+                                <th scope="col">DESCRIPCIÓN</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">LOTE</th>
+                                <th scope="col">CALIDAD</th>
+                                <th scope="col">CATEGORIA</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <!--  <tr>
+                            <!--  <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -95,7 +88,7 @@
                             
                           </tr>-->
                         </tbody>
-                      </table>
+                    </table>
                 </div>
             </div>
         </div>
