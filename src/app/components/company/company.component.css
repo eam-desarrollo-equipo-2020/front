@@ -8,3 +8,11 @@
     font-size: 35px;
     color: #36A0FF;
 }
+
+.form{
+    width:700px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#c0ccd3;
+}
