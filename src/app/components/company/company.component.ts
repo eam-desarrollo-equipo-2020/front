@@ -5,6 +5,7 @@ import { error } from 'protractor';
 import { CompanyService } from 'src/app/services/company.service';
 import { CompanyInterface } from 'src/app/models/company';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,13 +18,27 @@ export class CompanyComponent implements OnInit {
   // public company: CompanyInterface;
   //public company:string;
   public status: string;
+  tittle="pryeva";
 
   constructor(
     // private _CompanyService: CompanyService,
+    private toastr:ToastrService,  
     public authService: CompanyService,
 
-  ) {
-    // this.company = new Company('', '', '', '', '', '');
+  ) {}
+
+  alert(){
+    this.toastr.success('Registrado Correctamente','success',{
+      timeOut:1000,
+      progressBar:true
+    });
+  }
+
+  alert2(){
+    this.toastr.error(' No se pudo registrar','fallò',{
+      timeOut:1000,
+      progressBar:true
+    });
   }
 
   public compa: CompanyInterface = {
@@ -63,6 +78,7 @@ export class CompanyComponent implements OnInit {
         response => {
           if (response.status == 'success') {
             console.log("this.company")
+            this.alert();
             // console.log(this.compa)
             this.status = 'success ';
             // this.compa = response.compa;
@@ -72,6 +88,7 @@ export class CompanyComponent implements OnInit {
             location.reload();
           } else {
             this.status = 'error'
+            this.alert2;
           }
         },
         error => {

@@ -29,6 +29,8 @@ import { UserComponent } from './components/user/user.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
     // FlashMessagesModule.forRoot()
   ],
   providers: [AuthService, AngularFirestore, HttpClientModule, {

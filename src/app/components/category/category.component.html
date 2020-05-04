@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="mid-form" (submit)="onSubmit()">
+                <form class="mid-form"  #categoryForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
                         <legend class="text-center header">Registro Categoria</legend>
 
@@ -11,8 +11,7 @@
                             <div class="col-md-8">
 
                                 <input id="name" name="name" type="text" [(ngModel)]="cate.name"
-                                placeholder="Nombre" class="form-control"
-                                required>
+                                placeholder="Nombre" class="form-control" required>
 
                             </div>
                         </div>
@@ -21,15 +20,14 @@
                             <div class="col-md-8">
 
                                 <input id="description" name="name" type="text" [(ngModel)]="cate.description"
-                                    placeholder="Departamento" class="form-control"
-                                    required>
+                                    placeholder="Descripcion" class="form-control" required>
 
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                                <button type="submit" class="btn btn-primary btn-lg" [disabled]="categoryForm.invalid">Guardar</button>
                             </div>
                         </div>
                     </fieldset>
