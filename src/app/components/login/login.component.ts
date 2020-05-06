@@ -7,7 +7,7 @@ import { isError } from 'util';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 // import {FlashMessagesService} from 'angularfire2-flash-messages';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
     private toastr:ToastrService,  
     public authService: AuthService,
     public router: Router,
-    private location: Location,
-    private toastr: ToastrService,
+    private location: Location
     // public flashMensaje: FlashMessagesService
   ) { }
 
@@ -40,15 +39,15 @@ export class LoginComponent implements OnInit {
     // location.reload();
   // }
 
-  alert() {
-    this.toastr.success('Inicio de Sesión Exitoso!', 'success', {
-      timeOut: 100,
-      progressBar: true
-    });
+  // alert() {
+  //   this.toastr.success('Inicio de Sesión Exitoso!', 'success', {
+  //     timeOut: 100,
+  //     progressBar: true
+  //   });
     // location.reload();
     // this.goForward();
     // this.router.navigate(['/home']);
-  }
+  // }
 
   public user: UserInterface = {
     email: "",
@@ -58,9 +57,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   alert(){
     this.toastr.success('Usuario y Contraseña correctos','success',{
-      timeOut:1000,
+      timeOut:100,
       progressBar:true
     });
   }
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
 
   alert2(){
     this.toastr.error(' Verifique los Datos Ingresados','fallo',{
-      timeOut:1000,
+      timeOut:100,
       progressBar:true
     });
   }

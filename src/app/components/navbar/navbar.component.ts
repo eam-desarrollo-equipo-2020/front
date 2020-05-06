@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
   }
   alert(){
     this.toastr.success('Vuelve Pronto','success',{
-      timeOut:1000,
+      timeOut:100,
       progressBar:true
     });
   }
