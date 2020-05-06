@@ -2,28 +2,51 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { UserInterface } from 'src/app/models/user-interface';
-import { Location } from '@angular/common';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { isError } from 'util';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 // import {FlashMessagesService} from 'angularfire2-flash-messages';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 
 })
 export class LoginComponent implements OnInit {
 
   // public email: string;
   // public pwd: string;
+  // public urlHome1: '[';
+  // public urlHome: '/home';
+  // public urlHome3: ']';
+  // public urlHomee: "";
 
   constructor(
     public authService: AuthService,
     public router: Router,
-    private location: Location
+    private location: Location,
+    private toastr: ToastrService,
     // public flashMensaje: FlashMessagesService
   ) { }
+
+  // goForward() {
+    // this.location.go(this.urlHome);
+    // location.assign(this.urlHome)
+    // location.reload();
+  // }
+
+  alert() {
+    this.toastr.success('Inicio de Sesión Exitoso!', 'success', {
+      timeOut: 100,
+      progressBar: true
+    });
+    // location.reload();
+    // this.goForward();
+    // this.router.navigate(['/home']);
+  }
 
   public user: UserInterface = {
     email: "",
@@ -48,6 +71,7 @@ export class LoginComponent implements OnInit {
             console.log(token);
             this.authService.setToken(token);
             this.router.navigate(['/home']);
+            this.alert();
             // location.reload();
             this.isError = false;
           },

@@ -2,44 +2,55 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="form" #perfilForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
                         <legend class="text-center header">Crear Perfil</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="nombre" name="name" type="text" placeholder="Nombre" class="form-control" required> 
+                                <b> <label for="nombre">Nombre *</label></b>
+                                <input id="nombre" name="name" type="text" placeholder="Nombre" class="form-control"
+                                #name="ngModel" [(ngModel)]="perfil.name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="cedula" name="id_card" type="text" placeholder="Cédula" class="form-control" required>
+                                <b> <label for="cedula">Cedula *</label></b>
+                                <input id="cedula" name="id_card" type="text" placeholder="Cédula" class="form-control"
+                                #id_card="ngModel" [(ngModel)]="perfil.id_card" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control" required>
+                                <b> <label for="phone">Tel. *</label></b>
+                                <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control"
+                                #phone="ngModel" [(ngModel)]="perfil.phone" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="city" name="city" type="text" placeholder="Ciudad" class="form-control" required>
+                                <b> <label for="city">Ciudad *</label></b>
+                                <input id="city" name="city" type="text" placeholder="Ciudad" class="form-control"
+                                #city="ngModel" [(ngModel)]="perfil.city" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"></span>
                             <div class="col-md-8">
-                                <input id="birth_date" name="birth_date" type="date" placeholder="Fecha" class="form-control" required>
+                                <b> <label for="birth_date">Fecha de Nacimiento *</label></b>
+                                <input id="birth_date" name="birth_date" type="date" placeholder="Fecha"
+                                    class="form-control" #birth_date="ngModel" [(ngModel)]="perfil.birth_date" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Registrar perfil</button>
+                                <button type="submit" (click)="alert()" class="btn btn-primary btn-lg"
+                                    [disabled]="perfilForm.invalid">Registrar perfil</button>
                             </div>
                         </div>
                     </fieldset>
@@ -48,16 +59,16 @@
                 <div>
                     <table class="table">
                         <thead>
-                          <tr>
-                            <th scope="col">Nombre </th>
-                            <th scope="col">Cédula</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">Ciudad</th>
-                            <th scope="col">Fecha</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">Nombre </th>
+                                <th scope="col">Cédula</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Ciudad</th>
+                                <th scope="col">Fecha</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <!--  <tr>
+                            <!--  <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -76,12 +87,8 @@
                             
                           </tr>-->
                         </tbody>
-                      </table>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-   
-                   
-                       
- 
