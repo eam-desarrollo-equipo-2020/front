@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { isError } from 'util';
 import { NgForm } from '@angular/forms';
 // import {FlashMessagesService} from 'angularfire2-flash-messages';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   // public pwd: string;
 
   constructor(
+    private toastr:ToastrService,  
     public authService: AuthService,
     public router: Router,
     private location: Location
@@ -33,14 +35,29 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  alert(){
+    this.toastr.success('Usuario y Contraseña correctos','success',{
+      timeOut:1000,
+      progressBar:true
+    });
+  }
+  
 
+  alert2(){
+    this.toastr.error(' Verifique los Datos Ingresados','fallo',{
+      timeOut:1000,
+      progressBar:true
+    });
+  }
   onSubmitLogin(form: NgForm) {
     if (form.valid) {
       console.log(this.user);
       return this.authService
         .loginuser(this.user.email, this.user.pwd)
         .subscribe(
+          
           data => {
+            this.alert();
             // console.log(data.user.accessToken);
             this.authService.setUser(data.user);
             const token = data.user.accessToken;
@@ -52,9 +69,12 @@ export class LoginComponent implements OnInit {
             this.isError = false;
           },
           error => this.onIsError()
+         
         );
+        this.alert2();
     } else {
       this.onIsError();
+      this.alert2();
     }
 
     /*  this.authService.loginEmail(this.email, this.pwd)

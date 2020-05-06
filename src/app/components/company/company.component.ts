@@ -18,7 +18,7 @@ export class CompanyComponent implements OnInit {
   // public company: CompanyInterface;
   //public company:string;
   public status: string;
-  tittle="pryeva";
+  tittle="prueba";
 
   constructor(
     // private _CompanyService: CompanyService,
@@ -35,7 +35,7 @@ export class CompanyComponent implements OnInit {
   }
 
   alert2(){
-    this.toastr.error(' No se pudo registrar','fallò',{
+    this.toastr.warning(' No se pudo registrar','fallò',{
       timeOut:1000,
       progressBar:true
     });
@@ -51,34 +51,22 @@ export class CompanyComponent implements OnInit {
   };
 
   ngOnInit() {
-    //  console.log(this._CompanyService.holaMundo());
-    // console.log(this._CompanyService.pruebas());
-    // this._CompanyService.getCompany().subscribe(
-    // response => {
-    // console.log(response);
-    //},
-    //error => {
-    //console.log(error);
-    // z
+  
   }
-  //)
+  
+  limpiarCampos(){
+
+  }
 
   onSubmit(): void {
-    // companyForm: NgForm
-    // console.log(companyForm.value);
-    // if (companyForm.value.id_company == null) {
-    // nuevo
-    //   this.authService.create(companyForm.value).subscribe(empresa => location.reload());
-    // } else {
-    //   console.log("UPDATE EMPRESA");
-    // }
-    // if (compa.id_company == null) {
+    
     this.authService.createComp(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento, this.compa.objeto_social, this.compa.representante_legal)
       .subscribe(
         response => {
+          this.alert();
           if (response.status == 'success') {
             console.log("this.company")
-            this.alert();
+           
             // console.log(this.compa)
             this.status = 'success ';
             // this.compa = response.compa;
@@ -94,6 +82,7 @@ export class CompanyComponent implements OnInit {
         error => {
           console.log(error);
           this.status = 'error';
+          this.alert2();
         }
       )
     // NEW
