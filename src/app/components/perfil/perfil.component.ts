@@ -12,6 +12,7 @@ import { ResourceLoader } from '@angular/compiler';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  tittle="prueba";
 
   public status: string;
 
