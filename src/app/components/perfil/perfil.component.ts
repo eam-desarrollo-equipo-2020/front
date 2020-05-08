@@ -57,10 +57,11 @@ export class PerfilComponent implements OnInit {
             console.log("this.perfilny")
             this.alert();
             this.status = 'success ';
+            location.reload();
             console.log(data);
           } else {
             this.status = 'error'
-            this.alert2;
+            this.alert2();
           }
         },
         error => {
