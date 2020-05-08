@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+.form {
+  width: 700px;
+  padding: 16px;
+  border-radius: 10px;
+  margin: auto;
+  background-color: #c0ccd3;
+}
+
+>>>>>>> 8cacada7aa3ac89104f20e9ed876802cc8552f6f
 .header {
     color: black;
     font-size: 27px;
@@ -6,6 +17,7 @@
 
 .bigicon {
     font-size: 35px;
+<<<<<<< HEAD
     color: white;
 }
 
@@ -19,4 +31,7 @@
 
 .container {
     background-color: gray;
+=======
+    color: #36A0FF;
+>>>>>>> 8cacada7aa3ac89104f20e9ed876802cc8552f6f
 }

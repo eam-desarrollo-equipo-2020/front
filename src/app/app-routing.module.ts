@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: "perfil",
-    component:PerfilComponent
+    component: PerfilComponent
   },
   {
     path: "producto",
@@ -57,7 +57,8 @@ const routes: Routes = [
   {
     path: "",
     redirectTo: "home", pathMatch: "full"
-  }];
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

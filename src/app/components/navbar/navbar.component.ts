@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 // import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +15,8 @@ export class NavbarComponent implements OnInit {
   // public nombreUsuario: string;
   // public emailUsuario: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService,    private toastr:ToastrService,  
+    ) { }
 
   public isLogged = false;
 
@@ -39,7 +42,12 @@ export class NavbarComponent implements OnInit {
     //   }
     // });
   }
-
+  alert(){
+    this.toastr.success('Vuelve Pronto','success',{
+      timeOut:100,
+      progressBar:true
+    });
+  }
   onCheckUser(): void {
     if (this.authService.getCurrentUser() === null) {
       this.isLogged = false;
@@ -50,8 +58,10 @@ export class NavbarComponent implements OnInit {
   }
 
   onClickLogout(): void {
+    this.alert();
     this.authService.logout();
     location.reload();
+    
   }
 
 }
