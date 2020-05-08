@@ -8,6 +8,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { TipoUsuarioComponent } from './components/tipo-usuario/tipo-usuario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 // import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: "producto",
     component: ProductoComponent
+  },
+  {
+    path: "tipo-usuario",
+    component: TipoUsuarioComponent
   },
   {
     path: "",

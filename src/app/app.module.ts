@@ -31,6 +31,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import { TipoUsuarioComponent } from './components/tipo-usuario/tipo-usuario.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {ToastrModule} from 'ngx-toastr';
     CategoryComponent,
     UserComponent,
     PerfilComponent,
-    ProductoComponent
+    ProductoComponent,
+    TipoUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -3,9 +3,11 @@
         <div class="col-md-12">
             <div class="well well-sm">
                 <br>
-                <form class="form" #categoryForm="ngForm" (submit)="onSubmit()">
+                <form class="form" #tipoUsuarioForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
-                        <b> <legend class="text-center header"> Categoria</legend></b>
+                        <b>     <legend class="text-center header">Tipo usuario</legend></b>
+                        <em>Ingrese los siguientes datos:</em>
+
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"> </span>
@@ -28,41 +30,21 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" [disabled]="categoryForm.invalid">Guardar</button>
+                                <button type="submit" class="btn btn-primary btn-lg" [disabled]="tipoUsuarioForm.invalid">Guardar</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
-
+                <br>
                 <div>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Nombre </th>
                                 <th scope="col">Descripción</th>
-
                             </tr>
                         </thead>
-                        <tbody>
-                            <!--  <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            
-                          </tr>-->
-                        </tbody>
+
                     </table>
                 </div>
             </div>
