@@ -28,7 +28,7 @@ export class ProductoService {
         price: number,
         lot: string,
         quantity: number,
-        category: number): Observable<any> {
+        category: string): Observable<any> {
         let accessToken = localStorage.getItem("accessToken");
         console.log(accessToken);
 

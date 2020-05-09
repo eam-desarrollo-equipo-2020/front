@@ -4,5 +4,5 @@ export interface ProductoInterface {
     price?: number;
     lot?: string;
     quantity?: number;
-    category?: number;
+    category?: string;
 }

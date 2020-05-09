@@ -39,7 +39,7 @@ export class ProductoComponent implements OnInit {
     price: 0,
     lot: "",
     quantity: 0,
-    category: 0
+    category: ""
   };
 
   ngOnInit() {
