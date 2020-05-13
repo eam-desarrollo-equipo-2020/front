@@ -1,5 +1,5 @@
 .header {
-    color: black;
+    color: darkcyan;
     font-size: 27px;
     padding: 10px;
 }
@@ -14,9 +14,9 @@
     padding: 16px;
     border-radius: 10px;
     margin: auto;
-    background-color: white;
+    background-color:darkgrey;
 }
 
 .container {
-    background-color: gray;
+    background-color:darkgrey;
 }

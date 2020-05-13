@@ -6,34 +6,42 @@
                 <form class="form" #categoryForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
                         <b> <legend class="text-center header"> Categoria</legend></b>
+                        <hr color="black" size=3>
+                        <em>INGRESE LOS SIGUIENTES DATOS</em>
+                        <hr color="black" size=3>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"> </span>
-                            <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-3">
                                 <b> <label for="name">Nombre</label></b>
-
-                                <input id="name" name="name" type="text" [(ngModel)]="cate.name" class="form-control" required>
-
+                                </div>
+                                <div class="col-md-5">
+                                <input id="name" name="name" placeholder="Nombre" disabledtype="text" [(ngModel)]="cate.name" class="form-control" required>
+                                </div>
                             </div>
 
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"></span>
-                            <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-3">
                                 <b> <label for="description">Descripcion</label></b>
-                                <input id="description" name="name" type="text" [(ngModel)]="cate.description" class="form-control" required>
-
+                                </div>
+                                <div class="col-md-5">
+                                <input id="description"placeholder="Descripcion" disabledtype="text" name="name" type="text" [(ngModel)]="cate.description" class="form-control" required>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" [disabled]="categoryForm.invalid">Guardar</button>
+                                <button type="submit" class="btn btn-info" [disabled]="categoryForm.invalid">Guardar</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
-
+                <hr color="black" size=3>
+                <h6>A continuación los datos de la categoria</h6>
+                 <hr color="black" size=3>
                 <div>
                     <table class="table">
                         <thead>
