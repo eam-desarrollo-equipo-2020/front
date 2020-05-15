@@ -6,7 +6,7 @@
                 <form class="form" #companyForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
                         <b>
-                            <legend class="text-center header">Empresa</legend>
+                            <legend class="text-center header">EMPRESA</legend>
                         </b>
                         <hr color="black" size=3>
                         <em>INGRESE LOS SIGUIENTES DATOS</em>
@@ -16,28 +16,24 @@
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><b> <label>NIT</label></b></div>
-                                    <!-- [(ngModel)]="compa.id_company" -->
-                                    <div class="col-md-5"><input id="id_company" placeholder="Nit" disabledtype="text" name="id_company"
-                                        type="number" #id="ngModel" [(ngModel)]="compa.id_company" class="form-control"
-                                        required></div>
+                                <div class="col-md-3"><b> <label>NIT *</label></b></div>
+                                <!-- [(ngModel)]="compa.id_company" -->
+                                <div class="col-md-5"><input id="id_company" placeholder="Nit" disabledtype="text" name="id_company" type="number" #id="ngModel" [(ngModel)]="compa.id_company" class="form-control" required></div>
                             </div>
                         </div>
 
 
 
                         <div class="form-group">
-                            
-                            
+
+
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="razon_social">Razon Social *</label></b>
-                            </div>
+                                    <b> <label for="razon_social">Razon Social *</label></b>
+                                </div>
                                 <!-- [(ngModel)]="compa.razon_social" -->
                                 <div class="col-md-5">
-                                <input id="razon_social" placeholder="Razon Social" disabledtype="text"
-                                    name="razon_social" type="text" #razon="ngModel" [(ngModel)]="compa.razon_social"
-                                    class="form-control" required>
+                                    <input id="razon_social" placeholder="Razon Social" disabledtype="text" name="razon_social" type="text" #razon="ngModel" [(ngModel)]="compa.razon_social" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -45,40 +41,35 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="Departamento">Departamento *</label></b>
+                                    <b> <label for="Departamento">Departamento *</label></b>
                                 </div>
                                 <!-- [(ngModel)]="compa.departamento" -->
                                 <div class="col-md-5">
-                                <input id="departamento" placeholder="Departamento" disabledtype="text"
-                                    name="departamento" type="text" #departamento="ngModel"
-                                    [(ngModel)]="compa.departamento" class="form-control" required>
-                                 </div>   
+                                    <input id="departamento" placeholder="Departamento" disabledtype="text" name="departamento" type="text" #departamento="ngModel" [(ngModel)]="compa.departamento" class="form-control" required>
+                                </div>
 
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="ciudad">Ciudad</label></b>
+                                    <b> <label for="ciudad">Ciudad</label></b>
                                 </div>
                                 <!-- [(ngModel)]="compa.ciudad" -->
                                 <div class="col-md-5">
-                                <input id="ciudad" name="ciudad" placeholder="Ciudad" disabledtype="text" type="text"
-                                    #ciudad="ngModel" [(ngModel)]="compa.ciudad" class="form-control" required>
-                                </div>    
+                                    <input id="ciudad" name="ciudad" placeholder="Ciudad" disabledtype="text" type="text" #ciudad="ngModel" [(ngModel)]="compa.ciudad" class="form-control" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="Representante">Representante *</label></b>
-                             </div>
+                                    <b> <label for="Representante">Representante *</label></b>
+                                </div>
                                 <!-- [(ngModel)]="compa.representante_legal" -->
                                 <div class="col-md-5">
-                                <input id="representante_legal" placeholder="Representante Legal" disabledtype="text"
-                                    name="representante_legal" type="text" #repre="ngModel"
-                                    [(ngModel)]="compa.representante_legal" class="form-control" required>
-                            </div>
+                                    <input id="representante_legal" placeholder="Representante Legal" disabledtype="text" name="representante_legal" type="text" #repre="ngModel" [(ngModel)]="compa.representante_legal" class="form-control" required>
+                                </div>
                             </div>
                         </div>
 
@@ -110,13 +101,11 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="objeto">Objeto Social</label></b>
+                                    <b> <label for="objeto">Objeto Social</label></b>
                                 </div>
                                 <!-- [(ngModel)]="compa.objeto_social" -->
                                 <div class="col-md-5">
-                                <input id="objeto_social" placeholder="Objeto Social" disabledtype="text"
-                                    name="objeto_social" type="text" objeto="ngModel" [(ngModel)]="compa.objeto_social"
-                                    class="form-control" required>
+                                    <input id="objeto_social" placeholder="Objeto Social" disabledtype="text" name="objeto_social" type="text" objeto="ngModel" [(ngModel)]="compa.objeto_social" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -124,8 +113,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-info"
-                                    [disabled]="companyForm.invalid">Guardar</button>
+                                <button type="submit" class="btn btn-info" [disabled]="companyForm.invalid">GUARDAR</button>
                             </div>
                         </div>
                     </fieldset>

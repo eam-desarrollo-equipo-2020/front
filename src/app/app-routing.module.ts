@@ -51,7 +51,7 @@ const routes: Routes = [
     component: ProductoComponent
   },
   {
-    path: "tipo-usuario",
+    path: "tipoUsuario",
     component: TipoUsuarioComponent
   },
   {

@@ -113,7 +113,16 @@ export class AuthService {
     let params = JSON.stringify(producto);
     return this.htttp.post(this.url + 'create-product', params, { headers: this.headers });
   }
-
+//tipo usuario
+createTipo(tipo): Observable<any> {
+  let params = JSON.stringify(tipo);
+  return this.htttp.post(this.url + 'create-tipo', params, { headers: this.headers });
+}
+//tipo usuario
+getListTipoUsuario(tipo): Observable<any> {
+  let params = JSON.stringify(tipo);
+  return this.htttp.get(this.url + 'user-type',  { headers: this.headers });
+}
   // register user
   registerUser(email: string, pwd: string): Observable<any> {
     const url_api = "http://173.230.136.51:3000/api/register";

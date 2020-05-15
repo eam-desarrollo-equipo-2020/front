@@ -12,16 +12,22 @@ import { Location } from '@angular/common';
 export class TipoUsuarioComponent implements OnInit {
 
   public status: string;
+  
+  tipoUsuarioData= {} as TipoUsuarioInterface;
+ tipoUsuario: TipoUsuarioInterface[] = [];
 
   constructor(
    private toastr: ToastrService,
     private location: Location,
+  
 
     public authService: TipoUsuarioService,
 
   ) {
    
   }
+ 
+
   alert() {
     this.toastr.success('Registrado Correctamente', 'success', {
       timeOut: 1000,
@@ -42,9 +48,29 @@ export class TipoUsuarioComponent implements OnInit {
   };
 
   ngOnInit() {
-    
-  }
   
+    this.getListTipoUsuario();
+  }
+ /**  getListTipoUsuario(){
+    this.authService.getListTipoUsuario()
+    .subscribe((tipoUsuario: TipoUsuarioInterface) => (this.tipoUsuario = tipoUsuario));
+  }*/
+  getListTipoUsuario(){
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListTipoUsuario().subscribe(
+      (data) => { 
+        let respuesta: any;
+        respuesta = data;
+        
+      this.tipoUsuario = respuesta.user_types;
+       
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
+  }
+
 
   onSubmit(): void {
     this.authService.createCate(this.cate.name, this.cate.description)

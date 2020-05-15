@@ -5,7 +5,7 @@
                 <br>
                 <form class="form" #companyForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
-                        <b> <legend class="text-center header">Producto</legend></b>
+                        <b> <legend class="text-center header">PRODUCTO</legend></b>
                         <hr color="black" size=3>
                         <em>INGRESE LOS SIGUIENTES DATOS</em>
                         <hr color="black" size=3>
@@ -13,68 +13,68 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="name">Nombre</label></b>
-                                </div>
-                                 <div class="col-md-5">
-                                <input id="name" name="name" type="text" #nombre="ngModel" [(ngModel)]="prod.name" class="form-control" required>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                <b> <label for="detail">Descripción</label></b>
+                                    <b> <label for="name">Nombre</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                <input id="detail" name="name" type="text" [(ngModel)]="prod.detail" class="form-control" required>
+                                    <input id="name" name="name" type="text" #nombre="ngModel" [(ngModel)]="prod.name" class="form-control" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="price">Precio</label></b>
+                                    <b> <label for="detail">Descripción</label></b>
                                 </div>
-                                 <div class="col-md-5">
-                                <input id="price" name="name" type="number" [(ngModel)]="prod.price" class="form-control" required>
-                                 </div>                          
+                                <div class="col-md-5">
+                                    <input id="detail" name="name" type="text" [(ngModel)]="prod.detail" class="form-control" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="lot">Lote</label></b>
+                                    <b> <label for="price">Precio *</label></b>
                                 </div>
-                                                                 <div class="col-md-5">
-                                <input id="lot" name="name" type="text" [(ngModel)]="prod.lot" class="form-control" required>
-                                 </div>
+                                <div class="col-md-5">
+                                    <input id="price" name="name" type="number" [(ngModel)]="prod.price" class="form-control" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="quantity">Cantidad</label></b>
+                                    <b> <label for="lot">Lote *</label></b>
                                 </div>
-                                
-                                    <div class="col-md-5">
-                                <input id="quantity" name="name" type="number" [(ngModel)]="prod.quantity" class="form-control" required>
-                                    </div> 
+                                <div class="col-md-5">
+                                    <input id="lot" name="name" type="text" [(ngModel)]="prod.lot" class="form-control" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="category">Categoria</label></b>
+                                    <b> <label for="quantity">Cantidad *</label></b>
                                 </div>
-                                 <div class="col-md-5">
-                                <input id="category" name="name" type="text" [(ngModel)]="prod.category" class="form-control" required>
-                                    </div>                            
+
+                                <div class="col-md-5">
+                                    <input id="quantity" name="name" type="number" [(ngModel)]="prod.quantity" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b> <label for="category">Categoria *</label></b>
+                                </div>
+                                <div class="col-md-5">
+                                    <input id="category" name="name" type="text" [(ngModel)]="prod.category" class="form-control" required>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-info">Registrar</button>
+                                <button type="submit" class="btn btn-info">REGISTRAR</button>
                             </div>
                         </div>
                         <!-- </fieldset> -->

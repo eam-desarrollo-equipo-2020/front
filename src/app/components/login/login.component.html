@@ -2,42 +2,37 @@
 
 <div class="container">
     <div class="container text-center p-5">
-        <div class="row justify-content-end">
-            <div class="card border-primary p-3" style="max-width: 50rem;">
-                <!-- <img [src]="imgProfile" class="card-img-top" /> -->
-                <div class="card-header">
-                    <i class="fas fa-users text-primary"></i>
-                    <h4 class="text-primary">Login</h4>
-                </div>
-                <div class="card-body text-primary">
-                    <form #formLogin="ngForm" (submit)="onSubmitLogin(formLogin)">
-                        <!-- <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1> -->
-                        <div class="alert alert-danger" role="alert" *ngIf="isError">
-                            Ingresado mal el Usuario o la Contraseña!
-                        </div>
-                        <!-- (submit)="onSubmitLogin()" -->
-                        <div class="form-group">
-                            <input name="email" id="email" [(ngModel)]="user.email" type="text"
-                                class="border-primary form-control" placeholder="Ingrese el Correo" maxlength="20"
-                                required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+        <div class="row justify-content-end"></div>
+        <div class="btn btn-light" style="max-width: 50rem;">
+            <!-- <img [src]="imgProfile" class="card-img-top" /> -->
+            <div class="card-header">
+                <i class="fas fa-users text-info"></i>
+                <h4 class="text-info">LOGIN</h4>
+            </div>
+            <div class="card-body text-info">
+                <form #formLogin="ngForm" (submit)="onSubmitLogin(formLogin)">
+                    <!-- <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1> -->
+                    <div class="alert alert-danger" role="alert" *ngIf="isError">
+                        Ingresado mal el Usuario o la Contraseña!
+                    </div>
+                    <!-- (submit)="onSubmitLogin()" -->
+                    <div class="form-group">
+                        <input name="email" id="email" [(ngModel)]="user.email" type="text" class="border-primary form-control" placeholder="Ingrese el Correo" maxlength="20" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
-                        </div>
-                        <div class="form-group">
-                            <input name="pwd" id="pwd" [(ngModel)]="user.pwd" type="password"
-                                class="border-primary form-control" placeholder="Ingrese la contraseña" maxlength="11"
-                                required="required">
-                        </div>
-                        <!-- si agrega este campo al button podra navegar a la siguiente pagina si se Logea  -->
-                        <!-- routerLink="/loginon" -->
-                        <button type="submit" class="btn btn-outline-primary">
+                    </div>
+                    <div class="form-group">
+                        <input name="pwd" id="pwd" [(ngModel)]="user.pwd" type="password" class="border-primary form-control" placeholder="Ingrese la contraseña" maxlength="11" required="required">
+                    </div>
+                    <!-- si agrega este campo al button podra navegar a la siguiente pagina si se Logea  -->
+                    <!-- routerLink="/loginon" -->
+                    <button type="submit" class="btn btn-outline-info">
                             <!-- (click)="onSubmitLogin()" -->
                             <i class="fas fa-sign-in-alt"></i>
                             Ingresar
                         </button>
-                    </form>
-                </div>         
-                <a class="card-link" [routerLink]="['user']">Registrar Usuario <span class="sr-only">(current)</span></a>
+                </form>
             </div>
+            <a class="card-link" [routerLink]="['user']">REGISTRAR app-tipo-usuario <span class="sr-only">(current)</span></a>
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@
                 <br>
                 <form class="form" #categoryForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
-                        <b> <legend class="text-center header"> Categoria</legend></b>
+                        <b> <legend class="text-center header"> CATEGORIA</legend></b>
                         <hr color="black" size=3>
                         <em>INGRESE LOS SIGUIENTES DATOS</em>
                         <hr color="black" size=3>
@@ -13,10 +13,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="name">Nombre</label></b>
+                                    <b> <label for="name">Nombre *</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                <input id="name" name="name" placeholder="Nombre" disabledtype="text" [(ngModel)]="cate.name" class="form-control" required>
+                                    <input id="name" name="name" placeholder="Nombre" disabledtype="text" [(ngModel)]="cate.name" class="form-control" required>
                                 </div>
                             </div>
 
@@ -24,24 +24,24 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="description">Descripcion</label></b>
+                                    <b> <label for="description">Descripcion</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                <input id="description"placeholder="Descripcion" disabledtype="text" name="name" type="text" [(ngModel)]="cate.description" class="form-control" required>
+                                    <input id="description" placeholder="Descripcion" disabledtype="text" name="name" type="text" [(ngModel)]="cate.description" class="form-control" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-info" [disabled]="categoryForm.invalid">Guardar</button>
+                                <button type="submit" class="btn btn-info" [disabled]="categoryForm.invalid">GUARDAR</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
                 <hr color="black" size=3>
                 <h6>A continuación los datos de la categoria</h6>
-                 <hr color="black" size=3>
+                <hr color="black" size=3>
                 <div>
                     <table class="table">
                         <thead>

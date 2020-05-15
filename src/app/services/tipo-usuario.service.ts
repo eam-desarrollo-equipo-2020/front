@@ -36,4 +36,17 @@ export class TipoUsuarioService {
         return this._http.post<TipoUsuarioInterface>(url_api, { name, description}, { headers: this.headers }).pipe(map(data => data));
     }
 
+    getListTipoUsuario() {
+        let accessToken = localStorage.getItem("accessToken");
+        console.log(accessToken);
+
+        const url_api = `http://173.230.136.51:3000/api/user-type`;
+        console.log(url_api);
+        console.log(this.headers);
+        return this._http.get<TipoUsuarioInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
+
+
+    }
+
+     
 }

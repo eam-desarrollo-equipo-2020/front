@@ -5,7 +5,7 @@
                 <br>
                 <form class="form" #perfilForm="ngForm" (submit)="onSubmit()">
                     <fieldset>
-                        <b> <legend class="text-center header">Perfil</legend></b>
+                        <b> <legend class="text-center header">PERFIL</legend></b>
                         <hr color="black" size=3>
                         <em>INGRESE LOS SIGUIENTES DATOS</em>
                         <hr color="black" size=3>
@@ -14,20 +14,20 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="nombre">Nombre *</label></b>
+                                    <b> <label for="nombre">Nombre *</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                <input id="nombre" name="name" type="text" placeholder="Nombre" class="form-control" #name="ngModel" [(ngModel)]="perfil.name" required>
-                                </div>                           
+                                    <input id="nombre" name="name" type="text" placeholder="Nombre" class="form-control" #name="ngModel" [(ngModel)]="perfil.name" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="cedula">Cedula *</label></b>
+                                    <b> <label for="cedula">Cedula *</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                <input id="cedula" name="id_card" type="text" placeholder="Cédula" class="form-control" #id_card="ngModel" [(ngModel)]="perfil.id_card" required>
+                                    <input id="cedula" name="id_card" type="text" placeholder="Cédula" class="form-control" #id_card="ngModel" [(ngModel)]="perfil.id_card" required>
                                 </div>
                             </div>
                         </div>
@@ -35,37 +35,37 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="phone">Tel. *</label></b>
+                                    <b> <label for="phone">Tel. *</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control" #phone="ngModel" [(ngModel)]="perfil.phone" required>
+                                    <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control" #phone="ngModel" [(ngModel)]="perfil.phone" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
-                                <b> <label for="city">Ciudad *</label></b>
+                                    <b> <label for="city">Ciudad *</label></b>
                                 </div>
-                                   <div class="col-md-5">
-                                <input id="city" name="city" type="text" placeholder="Ciudad" class="form-control" #city="ngModel" [(ngModel)]="perfil.city" required>
-                                   </div>
+                                <div class="col-md-5">
+                                    <input id="city" name="city" type="text" placeholder="Ciudad" class="form-control" #city="ngModel" [(ngModel)]="perfil.city" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
 
-                                <b> <label for="birth_date">Fecha de Nacimiento *</label></b>
+                                    <b> <label for="birth_date">Fecha de Nacimiento *</label></b>
                                 </div>
-                                 <div class="col-md-3">
-                                <input id="birth_date" name="birth_date" type="date" placeholder="Fecha" class="form-control" #birth_date="ngModel" [(ngModel)]="perfil.birth_date" required>
-                                 </div>
+                                <div class="col-md-3">
+                                    <input id="birth_date" name="birth_date" type="date" placeholder="Fecha" class="form-control" #birth_date="ngModel" [(ngModel)]="perfil.birth_date" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" (click)="alert()" class="btn btn-info" [disabled]="perfilForm.invalid">Registrar perfil</button>
+                                <button type="submit" (click)="alert()" class="btn btn-info" [disabled]="perfilForm.invalid">REGISTRAR PERFIL</button>
                             </div>
                         </div>
                     </fieldset>
