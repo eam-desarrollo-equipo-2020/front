@@ -15,53 +15,37 @@ export class NavbarComponent implements OnInit {
   // public nombreUsuario: string;
   // public emailUsuario: string;
 
-  constructor(public authService: AuthService,    private toastr:ToastrService,  
-    ) { }
+  constructor(public authService: AuthService, private toastr: ToastrService,
+  ) { }
 
   public isLogged = false;
 
   ngOnInit(): void {
-
-    // if (this.authService.getCurrentUser() === null) {
-    //   this.isLogged = false;
-    // } else {
-    //   this.isLogged = true;
-    // }
-    // console.log(this.isLogged);
-
-    this.onCheckUser();
-    // this.onClickLogout();
-
-    // this.authService.getAuth().subscribe(auth => {
-    //   if (auth) {
-    //     this.isLogin = true;
-    //     this.nombreUsuario = auth.displayName;
-    //     this.emailUsuario = auth.email;
-    //   } else {
-    //     this.isLogin = false;
-    //   }
-    // });
+    // this.onCheckUser();
   }
-  alert(){
-    this.toastr.success('Vuelve Pronto','success',{
-      timeOut:100,
-      progressBar:true
+
+
+  alert() {
+    this.toastr.success('Vuelve Pronto', 'success', {
+      timeOut: 100,
+      progressBar: true
     });
   }
-  onCheckUser(): void {
-    if (this.authService.getCurrentUser() === null) {
-      this.isLogged = false;
-    } else {
-      this.isLogged = true;
-    }
-    console.log(this.isLogged);
-  }
+  
+  // onCheckUser(): void {
+  //   if (this.authService.getCurrentUser() === null) {
+  //     this.isLogged = false;
+  //   } else {
+  //     this.isLogged = true;
+  //   }
+  //   console.log(this.isLogged);
+  // }
 
   onClickLogout(): void {
     this.alert();
     this.authService.logout();
     location.reload();
-    
+
   }
 
 }

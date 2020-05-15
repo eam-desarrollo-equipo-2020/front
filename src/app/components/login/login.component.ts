@@ -13,41 +13,17 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
+  providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }]
 
 })
 export class LoginComponent implements OnInit {
 
-  // public email: string;
-  // public pwd: string;
-  // public urlHome1: '[';
-  // public urlHome: '/home';
-  // public urlHome3: ']';
-  // public urlHomee: "";
-
   constructor(
-    private toastr:ToastrService,  
+    private toastr: ToastrService,
     public authService: AuthService,
     public router: Router,
     private location: Location
-    // public flashMensaje: FlashMessagesService
   ) { }
-
-  // goForward() {
-    // this.location.go(this.urlHome);
-    // location.assign(this.urlHome)
-    // location.reload();
-  // }
-
-  // alert() {
-  //   this.toastr.success('Inicio de Sesión Exitoso!', 'success', {
-  //     timeOut: 100,
-  //     progressBar: true
-  //   });
-    // location.reload();
-    // this.goForward();
-    // this.router.navigate(['/home']);
-  // }
 
   public user: UserInterface = {
     email: "",
@@ -58,44 +34,38 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  alert(){
-    this.toastr.success('Usuario y Contraseña correctos','success',{
-      timeOut:100,
-      progressBar:true
+  alert() {
+    this.toastr.success('Inicio de sesión exitoso !', 'success', {
+      timeOut: 1000,
+      progressBar: true
     });
   }
-  
 
-  alert2(){
-    this.toastr.error(' Verifique los Datos Ingresados','fallo',{
-      timeOut:100,
-      progressBar:true
+  alert2() {
+    this.toastr.error(' Verifique los Datos Ingresados', 'fallo', {
+      timeOut: 1000,
+      progressBar: true
     });
   }
   onSubmitLogin(form: NgForm) {
     if (form.valid) {
       console.log(this.user);
-      return this.authService
-        .loginuser(this.user.email, this.user.pwd)
-        .subscribe(
-          
-          data => {
-            this.alert();
-            // console.log(data.user.accessToken);
-            this.authService.setUser(data.user);
-            const token = data.user.accessToken;
-            console.log("token en el component");
-            console.log(token);
-            this.authService.setToken(token);
-            this.router.navigate(['/home']);
-            this.alert();
-            // location.reload();
-            this.isError = false;
-          },
-          error => this.onIsError()
-         
-        );
-        this.alert2();
+      return this.authService.loginuser(this.user.email, this.user.pwd).subscribe(
+        data => {
+          this.alert();
+          // console.log(data.user.accessToken);
+          this.authService.setUser(data.user);
+          const token = data.user.accessToken;
+          console.log("token en el Ts");
+          console.log(token);
+          this.authService.setToken(token);
+          this.router.navigate(['/home']);
+          this.isError = false;
+        },
+        error => this.onIsError()
+
+      );
+      this.alert2();
     } else {
       this.onIsError();
       this.alert2();
