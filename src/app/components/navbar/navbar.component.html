@@ -8,7 +8,7 @@
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['home']">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active" *ngIf="isLogged">
+            <li class="nav-item active" *ngIf="authService.getCurrentUser()">
                 <a class="nav-link" [routerLink]="['tipoUsuario']">Tipo usuario <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active" *ngIf="authService.getCurrentUser()">
@@ -26,14 +26,14 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item" *ngIf="!isLogged">
+                <li class="nav-item" *ngIf="authService.getCurrentUser() === null">
                     <button class="btn btn-outline-info" [routerLink]="['/login']">INICIO
                         SESIÓN</button>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <!-- *ngIf="isLogged" -->
-                <li class="nav-item" *ngIf="isLogged">
+                <li class="nav-item" *ngIf="authService.getCurrentUser()">
                     <a class="btn btn-outline-info" href="#" (click)="onClickLogout()">CERRAR SESIÓN</a>
                 </li>
             </ul>
