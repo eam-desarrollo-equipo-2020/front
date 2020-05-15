@@ -13,13 +13,13 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }]
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 
 })
 export class LoginComponent implements OnInit {
 
   constructor(
-    private toastr: ToastrService,
+    private toastr:ToastrService,
     public authService: AuthService,
     public router: Router,
     private location: Location
@@ -34,33 +34,38 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  alert() {
-    this.toastr.success('Inicio de sesión exitoso !', 'success', {
-      timeOut: 1000,
-      progressBar: true
+  alert(){
+    this.toastr.success('Usuario y Contraseña correctos','success',{
+      timeOut:100,
+      progressBar:true
     });
   }
+  
 
-  alert2() {
-    this.toastr.error(' Verifique los Datos Ingresados', 'fallo', {
-      timeOut: 1000,
-      progressBar: true
+  alert2(){
+    this.toastr.error(' Verifique los Datos Ingresados','fallo',{
+      timeOut:100,
+      progressBar:true
     });
   }
   onSubmitLogin(form: NgForm) {
     if (form.valid) {
       console.log(this.user);
-      return this.authService.loginuser(this.user.email, this.user.pwd).subscribe(
+      return this.authService
+        .loginuser(this.user.email, this.user.pwd)
+        .subscribe(
+
         data => {
           this.alert();
           // console.log(data.user.accessToken);
           this.authService.setUser(data.user);
           const token = data.user.accessToken;
-          console.log("token en el Ts");
+          console.log("token en el component");
           console.log(token);
           this.authService.setToken(token);
           this.router.navigate(['/home']);
-          this.isError = false;
+          this.alert();
+            // location.reload();
         },
         error => this.onIsError()
 
