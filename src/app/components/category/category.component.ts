@@ -27,6 +27,7 @@ export class CategoryComponent implements OnInit {
       timeOut:1000,
       progressBar:true
     });
+    location.reload();
   }
   
 
