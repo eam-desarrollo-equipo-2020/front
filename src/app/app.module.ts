@@ -22,7 +22,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CompanyComponent } from './components/company/company.component';
+import { CompanyComponent } from "./components/company/company.component";
 import { CategoryComponent } from './components/category/category.component';
 
 import { UserComponent } from './components/user/user.component';

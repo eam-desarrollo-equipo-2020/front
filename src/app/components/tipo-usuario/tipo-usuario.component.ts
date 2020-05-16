@@ -19,9 +19,7 @@ export class TipoUsuarioComponent implements OnInit {
   constructor(
    private toastr: ToastrService,
     private location: Location,
-  
-
-    public authService: TipoUsuarioService,
+    public authService: TipoUsuarioService
 
   ) {
    

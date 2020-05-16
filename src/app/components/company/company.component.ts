@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 
+
+
+import { Component, OnInit } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { CompanyInterface } from 'src/app/models/company';
 import { ToastrService } from 'ngx-toastr';
@@ -9,33 +11,32 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css'],
-  // providers: [CompanyService],
 })
 export class CompanyComponent implements OnInit {
   // public company: CompanyInterface;
   //public company:string;
   public status: string;
-  tittle="prueba";
+  tittle = "prueba";
+  companyData = {} as CompanyInterface;
+  comapany: CompanyInterface[] = [];
 
   constructor(
     // private _CompanyService: CompanyService,
-    private toastr:ToastrService,  
-    public authService: CompanyService,
+    private toastr: ToastrService,
+    public authService: CompanyService) { }
 
-  ) {}
-
-  alert(){
-    this.toastr.success('Registrado Correctamente','success',{
-      timeOut:1000,
-      progressBar:true
+  alert() {
+    this.toastr.success('Registrado Correctamente', 'success', {
+      timeOut: 1000,
+      progressBar: true
     });
     location.reload();
   }
 
-  alert2(){
-    this.toastr.warning(' No se pudo registrar','fallò',{
-      timeOut:1000,
-      progressBar:true
+  alert2() {
+    this.toastr.warning(' No se pudo registrar', 'fallò', {
+      timeOut: 1000,
+      progressBar: true
     });
   }
 
@@ -49,22 +50,37 @@ export class CompanyComponent implements OnInit {
   };
 
   ngOnInit() {
-  
+    this.getListCompany();
   }
-  
-  limpiarCampos(){
 
+  getListCompany() {
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListCompany().subscribe(
+      (data) => {
+        let respuesta: any;
+        respuesta = data;
+
+        this.comapany = respuesta.companies;
+
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
+  }
+
+  limpiarCampos() {
   }
 
   onSubmit(): void {
-    
+
     this.authService.createComp(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento, this.compa.objeto_social, this.compa.representante_legal)
       .subscribe(
         response => {
           this.alert();
           if (response.status == 'success') {
-            console.log("this.company")
-           
+            console.log("this.company");
+
             // console.log(this.compa)
             this.status = 'success ';
             // this.compa = response.compa;
@@ -72,8 +88,9 @@ export class CompanyComponent implements OnInit {
             // this.authService.setToken(token);
             console.log(response);
             location.reload();
-          } else {
-            this.status = 'error'
+          }
+          else {
+            this.status = 'error';
             this.alert2;
           }
         },
@@ -82,9 +99,7 @@ export class CompanyComponent implements OnInit {
           this.status = 'error';
           this.alert2();
         }
-      )
-    
+      );
+
   }
 }
-
-

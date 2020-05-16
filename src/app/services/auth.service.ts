@@ -123,6 +123,13 @@ getListTipoUsuario(tipo): Observable<any> {
   let params = JSON.stringify(tipo);
   return this.htttp.get(this.url + 'user-type',  { headers: this.headers });
 }
+
+//listar company
+getListCompany(company): Observable<any> {
+  let params = JSON.stringify(company);
+  return this.htttp.get(this.url + 'list-companies',  { headers: this.headers });
+}
+
   // register user
   registerUser(email: string, pwd: string): Observable<any> {
     const url_api = "http://173.230.136.51:3000/api/register";

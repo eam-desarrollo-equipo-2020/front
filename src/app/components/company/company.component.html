@@ -127,32 +127,22 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Razon Social</th>
-                                <th scope="col">Representante Legal</th>
-                                <th scope="col">Departamento</th>
+                                <th scope="col">Razon social</th>
                                 <th scope="col">Ciudad</th>
-                                <th scope="col">Objeto Social</th>
+                                <th scope="col">Departamento</th>
+                                <th scope="col">Objeto social</th>
+                                <th scope="col">Repesentante legal</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!--  <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>-->
+                            <tr *ngFor="let comapany of comapany; index as i">
+                                <th>{{ i + 1 }}</th>
+                                <td scope="row">{{ comapany.razon_social }} </td>
+                                <td scope="row">{{ comapany.ciudad }}</td>
+                                <td scope="row">{{ comapany.departamento }}</td>
+                                <td scope="row">{{ comapany.objeto_social }}</td>
+                                <td scope="row">{{ comapany.representante_legal }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
