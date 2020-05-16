@@ -3,6 +3,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <img src="../assets/company.png" width="60" height="60" class="d-inline-block align-top" alt="">
         <a class="navbar-brand" [routerLink]="['home']"><b>Desarrollo en Equipo</b></a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -23,18 +24,20 @@
             <li class="nav-item active" *ngIf="authService.getCurrentUser()">
                 <a class="nav-link" [routerLink]="['producto']">Producto<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active" *ngIf="authService.getCurrentUser()">
+                <a class="nav-link" [routerLink]="['cliente']">Cliente<span class="sr-only">(current)</span></a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item" *ngIf="authService.getCurrentUser() === null">
-                    <button class="btn btn-outline-info" [routerLink]="['/login']">INICIO
-                        SESIÓN</button>
+                    <button class="btn btn-outline-info" [routerLink]="['/login']"><a class="nav-item nav-link active" [routerLink]="['login']"><img src="../assets/login.png" width="50" height="50" class="d-inline-block align-top" alt=""></a></button>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <!-- *ngIf="isLogged" -->
                 <li class="nav-item" *ngIf="authService.getCurrentUser()">
-                    <a class="btn btn-outline-info" href="#" (click)="onClickLogout()">CERRAR SESIÓN</a>
+                    <a class="btn btn-outline-info" href="#" (click)="onClickLogout()"><img src="../assets/logout2.png" width="50" height="50" class="d-inline-block align-top" alt=""></a>
                 </li>
             </ul>
         </form>

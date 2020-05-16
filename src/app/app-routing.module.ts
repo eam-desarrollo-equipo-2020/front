@@ -10,6 +10,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { TipoUsuarioComponent } from './components/tipo-usuario/tipo-usuario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ClientComponent } from './components/client/client.component';
+
 // import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
@@ -50,10 +52,12 @@ const routes: Routes = [
     path: "producto",
     component: ProductoComponent
   },
+ 
   {
-    path: "tipoUsuario",
-    component: TipoUsuarioComponent
+    path: "cliente",
+    component: ClientComponent
   },
+
   {
     path: "",
     redirectTo: "home", pathMatch: "full"

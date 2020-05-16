@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { Company } from '../../Models/company';
-// import { CompanyService } from '../../services/company.service';
-import { error } from 'protractor';
+
 import { CompanyService } from 'src/app/services/company.service';
 import { CompanyInterface } from 'src/app/models/company';
-import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -85,18 +82,7 @@ export class CompanyComponent implements OnInit {
           this.alert2();
         }
       )
-    // NEW
-    // this.dataApiService.saveBook(bookForm.value).subscribe(book => location.reload());
-    // } else {
-    // update
-    // console.log("UPDATE")
-    // }
-    // console.log(this.compa)
-    // this.authService.create(this.compa.id_company, this.compa.razon_social, this.compa.ciudad, this.compa.departamento,
-    //   this.compa.objeto_social, this.compa.representante_legal)
-    //   .subscribe(
-    //     company => location.reload()
-    //   );
+    
   }
 }
 
