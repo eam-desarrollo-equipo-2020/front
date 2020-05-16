@@ -24,7 +24,7 @@ export class PerfilComponent implements OnInit {
 
   alert() {
     this.toastr.success('Registrado Correctamente', 'success', {
-      timeOut: 100,
+      timeOut: 1000,
       progressBar: true
     });
     location.reload();
@@ -32,7 +32,7 @@ export class PerfilComponent implements OnInit {
 
   alert2() {
     this.toastr.error(' No se pudo registrar', 'Error !', {
-      timeOut: 100,
+      timeOut: 10,
       progressBar: true
     });
   }

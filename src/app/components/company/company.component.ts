@@ -32,6 +32,7 @@ export class CompanyComponent implements OnInit {
       timeOut:1000,
       progressBar:true
     });
+    location.reload();
   }
 
   alert2(){

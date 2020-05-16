@@ -27,7 +27,7 @@
                                     <b> <label for="cedula">Cedula *</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                    <input id="cedula" name="id_card" type="text" placeholder="Cédula" class="form-control" #id_card="ngModel" [(ngModel)]="perfil.id_card" required>
+                                    <input id="cedula" name="id_card" type="number" placeholder="Cédula" class="form-control" #id_card="ngModel" [(ngModel)]="perfil.id_card" required>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     <b> <label for="phone">Tel. *</label></b>
                                 </div>
                                 <div class="col-md-5">
-                                    <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control" #phone="ngModel" [(ngModel)]="perfil.phone" required>
+                                    <input id="phone" name="phone" type="number" placeholder="Teléfono" class="form-control" #phone="ngModel" [(ngModel)]="perfil.phone" required>
                                 </div>
                             </div>
                         </div>

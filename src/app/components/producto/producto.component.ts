@@ -23,12 +23,13 @@ export class ProductoComponent implements OnInit {
       timeOut:1000,
       progressBar:true
     });
+    location.reload();
   }
   
 
   alert2(){
     this.toastr.warning(' Verifique los Datos Ingresador','fallo',{
-      timeOut:1000,
+      timeOut:10,
       progressBar:true
     });
   }
