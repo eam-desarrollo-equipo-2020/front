@@ -54,6 +54,10 @@ const routes: Routes = [
   },
  
   {
+    path: "tipoUsuario",
+    component: TipoUsuarioComponent
+  },
+  {
     path: "cliente",
     component: ClientComponent
   },
