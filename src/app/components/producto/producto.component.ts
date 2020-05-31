@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from 'src/app/services/producto.service';
-import { ProductoInterface } from 'src/app/models/producto';
 import { ToastrService } from 'ngx-toastr';
+import { ProductoInterface } from 'src/app/models/producto';
+import { CategoryInterface } from 'src/app/models/category';
 
 @Component({
   selector: 'app-producto',
@@ -9,28 +10,28 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./producto.component.css'],
 })
 export class ProductoComponent implements OnInit {
-
   public status: string;
-  tittle="prueba";
+  categoryData = {} as CategoryInterface;
+  category: CategoryInterface[] = [];
 
   constructor(
-    private toastr:ToastrService,  
+    private toastr: ToastrService,
     public authService: ProductoService,
   ) {
   }
-  alert(){
-    this.toastr.success('Registrado Correctamente','success',{
-      timeOut:1000,
-      progressBar:true
+  alert() {
+    this.toastr.success('Registrado Correctamente', 'success', {
+      timeOut: 1000,
+      progressBar: true
     });
     location.reload();
   }
-  
 
-  alert2(){
-    this.toastr.warning(' Verifique los Datos Ingresador','fallo',{
-      timeOut:10,
-      progressBar:true
+
+  alert2() {
+    this.toastr.warning(' Verifique los Datos Ingresador', 'fallo', {
+      timeOut: 10,
+      progressBar: true
     });
   }
 
@@ -43,11 +44,13 @@ export class ProductoComponent implements OnInit {
     category: ""
   };
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getListCategory();
   }
-  
+
+
   onSubmit(): void {
-    this.authService.createProd(this.prod.name, this.prod.detail, this.prod.price, this.prod.lot, this.prod.quantity,this.prod.category)
+    this.authService.createProd(this.prod.name, this.prod.detail, this.prod.price, this.prod.lot, this.prod.quantity, this.prod.category)
       .subscribe(
         response => {
           this.alert();
@@ -59,7 +62,7 @@ export class ProductoComponent implements OnInit {
           } else {
             this.status = 'error';
 
-          this.alert2();
+            this.alert2();
           }
         },
         error => {
@@ -68,6 +71,26 @@ export class ProductoComponent implements OnInit {
           this.alert2();
         }
       )
+  }
+  getListCategory() {
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListCategoty().subscribe(
+      (data) => {
+        let respuesta: any;
+        respuesta = data;
+        console.log(data);
+                
+
+      
+        this.category = respuesta.prodCats;
+         //console.log(this.category);
+
+
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
   }
 }
 

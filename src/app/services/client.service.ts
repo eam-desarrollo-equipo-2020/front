@@ -40,4 +40,16 @@ export class ClientService {
         console.log(this.headers);
         return this._http.post<CompanyInterface>(url_api, { id_card, name, company }, { headers: this.headers }).pipe(map(data => data));
     }
+
+    getListCompany() {
+        let accessToken = localStorage.getItem("accessToken");
+        //    console.log(accessToken);
+        const url_api = `http://173.230.136.51:3000/api/list-companies`;
+       // console.log(url_api);
+        //console.log(this.headers);
+        return this._http.get<CompanyInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
+
+
+    }
 }
+    

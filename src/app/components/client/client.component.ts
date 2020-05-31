@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientInterface } from 'src/app/models/client';
+import { ClientService } from 'src/app/services/client.service';
 import { ToastrService } from 'ngx-toastr';
-import {ClientService } from 'src/app/services/client.service';
+import { ClientInterface } from 'src/app/models/client';
+import { CompanyInterface } from 'src/app/models/company';
+
 
 
 
@@ -13,25 +15,29 @@ import {ClientService } from 'src/app/services/client.service';
 })
 export class ClientComponent implements OnInit {
   public status: string;
-  tittle="prueba";
+  companyData = {} as CompanyInterface;
+  comapany: CompanyInterface[] = [];
+
+
   constructor(
-    private toastr:ToastrService,  
+    private toastr: ToastrService,
     public authService: ClientService,
   ) { }
 
   ngOnInit(): void {
+    this.getListCompany();
   }
-  alert(){
-    this.toastr.success('Registrado Correctamente','success',{
-      timeOut:1000,
-      progressBar:true
+  alert() {
+    this.toastr.success('Registrado Correctamente', 'success', {
+      timeOut: 1000,
+      progressBar: true
     });
   }
 
-  alert2(){
-    this.toastr.warning(' No se pudo registrar','fallò',{
-      timeOut:1000,
-      progressBar:true
+  alert2() {
+    this.toastr.warning(' No se pudo registrar', 'fallò', {
+      timeOut: 1000,
+      progressBar: true
     });
   }
 
@@ -42,11 +48,11 @@ export class ClientComponent implements OnInit {
   };
 
   onSubmit(): void {
-    
+
     this.authService.createClient(this.cli.id_card, this.cli.name, this.cli.company)
       .subscribe(
         response => {
-        
+
           if (response.status == 'success') {
             this.alert();
             console.log("this.client")
@@ -64,7 +70,28 @@ export class ClientComponent implements OnInit {
           this.alert2();
         }
       )
-    
+
   }
+
+  getListCompany() {
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListCompany().subscribe(
+      (data) => {
+        let respuesta: any;
+        respuesta = data;
+        console.log(data);
+        
+        this.comapany = respuesta.companies;
+           // console.log(this.comapany);
+
+
+
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
+  }
+
 
 }

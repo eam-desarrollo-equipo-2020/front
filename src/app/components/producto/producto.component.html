@@ -61,16 +61,15 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <b> <label for="category">Categoria *</label></b>
-                                </div>
-                                <div class="col-md-5">
-                                    <input id="category" name="name" type="text" [(ngModel)]="prod.category" placeholder="Categoria" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
+                            <b> <label for="sel1">Categoria *</label></b>
+                            <select id="category" name="name" type="text" [(ngModel)]="prod.category" placeholder="Categoria" class="form-control">
+                              <option>Seleccione una Opcion</option>
+                              <option *ngFor="let cat of category" >{{cat.name}}</option>
+                            </select>
+                          </div>
+          
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
@@ -97,24 +96,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!--  <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            
-                          </tr>-->
                         </tbody>
                     </table>
                 </div>

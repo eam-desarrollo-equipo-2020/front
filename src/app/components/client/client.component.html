@@ -33,16 +33,15 @@
                             </div>
                         </div>
 
+        
+
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <b> <label for="phone">Empresa *</label></b>
-                                </div>
-                                <div class="col-md-5">
-                                    <input id="company" name="company" type="text" placeholder="Empresa" class="form-control" #phone="ngModel" [(ngModel)]="cli.company" required>
-                                </div>
-                            </div>
-                        </div>
+                            <b> <label for="sel1">Empresa *</label></b>
+                            <select id="company" name="company" type="text" placeholder="Empresa" class="form-control" #phone="ngModel" [(ngModel)]="cli.company" >
+                              <option>Seleccione una Opcion</option>
+                              <option *ngFor="let com of comapany">{{com.razon_social}}</option>
+                            </select>
+                          </div>
                
                         <div class="form-group">
                             <div class="col-md-12 text-center">

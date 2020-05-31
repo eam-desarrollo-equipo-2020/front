@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Global } from './global';
 import { AuthService } from './auth.service';
 import { map } from 'rxjs/operators';
-import { ProductoInterface } from 'src/app/models/producto';
+import { CategoryInterface } from 'src/app/models/category';
 
 
 @Injectable({
@@ -35,7 +35,18 @@ export class ProductoService {
         const url_api = `http://173.230.136.51:3000/api/create-product`;
         console.log(url_api);
         console.log(this.headers);
-        return this._http.post<ProductoInterface>(url_api, { name, detail, price, lot, quantity, category }, { headers: this.headers }).pipe(map(data => data));
+        return this._http.post<CategoryInterface>(url_api, { name, detail, price, lot, quantity, category }, { headers: this.headers }).pipe(map(data => data));
+    }
+
+    getListCategoty() {
+        let accessToken = localStorage.getItem("accessToken");
+       // console.log(accessToken);
+        const url_api = `http://173.230.136.51:3000/api/prod-categories`;
+        //console.log(url_api);
+        //console.log(this.headers);
+        return this._http.get<CategoryInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
+
+
     }
 
 }
