@@ -34,6 +34,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { TipoUsuarioComponent } from './components/tipo-usuario/tipo-usuario.component';
 import { ClientComponent } from './components/client/client.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { OrdenComponent } from './components/orden/orden.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductoComponent,
     TipoUsuarioComponent,
     ClientComponent,
-    FooterComponent
+    FooterComponent,
+    OrdenComponent
   ],
   imports: [
     BrowserModule,

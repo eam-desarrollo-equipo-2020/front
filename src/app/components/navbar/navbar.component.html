@@ -27,6 +27,10 @@
             <li class="nav-item active" *ngIf="authService.getCurrentUser()">
                 <a class="nav-link" [routerLink]="['cliente']">Cliente<span class="sr-only">(current)</span></a>
             </li>
+
+            <li class="nav-item active" *ngIf="authService.getCurrentUser()">
+                <a class="nav-link" [routerLink]="['orden']">Orden<span class="sr-only">(current)</span></a>
+            </li>
         </ul>
 
         <form class="form-inline my-2 my-lg-0">

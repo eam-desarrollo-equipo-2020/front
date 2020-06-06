@@ -20,7 +20,7 @@ export class ProductoComponent implements OnInit {
     private toastr: ToastrService,
     public authService: ProductoService,
   ) {
-  }
+  } 
   alert() {
     this.toastr.success('Registrado Correctamente', 'success', {
       timeOut: 1000,

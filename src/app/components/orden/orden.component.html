@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <br>
+                <form class="form" #ordenForm="ngForm" (submit)="ordenSubmit(ordenForm)">
+                    <fieldset>
+                        <b>
+                            <legend class="text-center header">Orden</legend>
+                        </b>
+                        <hr color="black" size=3>
+                        <em>INGRESE LOS SIGUIENTES DATOS</em>
+                        <hr color="black" size=3>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3"><b> <label>Name *</label></b></div>
+                                <!-- [(ngModel)]="compa.id_company" -->
+                                <div class="col-md-5"><input id="name" placeholder="name" disabledtype="text" name="name" type="text" #name="ngModel" [(ngModel)]="ord.name" class="form-control" required></div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b> <label for="client">Cliente *</label></b>
+                                </div>
+                                <!-- [(ngModel)]="compa.razon_social" -->
+                                <div class="col-md-5">
+                                    <input id="client" placeholder="Cliente" disabledtype="text" name="client" type="text" #client="ngModel" [(ngModel)]="ord.client" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b> <label for="responsible">Responsable *</label></b>
+                                </div>
+                                <!-- [(ngModel)]="compa.departamento" -->
+                                <div class="col-md-5">
+                                    <input id="responsible" placeholder="Responsable" disabledtype="text" name="Responsable" type="text" #responsible="ngModel" [(ngModel)]="ord.responsible" class="form-control" required>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b> <label for="status">Estado *</label></b>
+                                </div>
+                                <!-- [(ngModel)]="compa.representante_legal" -->
+                                <div class="col-md-5">
+                                    <select id="status" name="status" type="text" class="form-control" #phone="ngModel" [(ngModel)]="ord.status">
+                                        <option value="true">Activo</option>
+                                        <option value="false">Inactivo</option>
+
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <input type="submit" class="btn btn-info" [disabled]="ordenForm.invalid && this.detailForm.invalid" value="Guardar orden" />
+                        </div>
+                    </div>
+                </form>
+                <br>
+
+                <form class="form" #detailForm="ngForm" (submit)="detailSubmit(detailForm)">
+                    <fieldset>
+                        <div class="form-group">
+                            <b> <label for="sel1">Detalle *</label></b>
+                            <select id="detail" name="detail" type="text" [(ngModel)]="prod" placeholder="detalle" class="form-control">
+                      <option>Seleccione una Opcion</option>
+                      <option [ngValue]="producto" *ngFor="let producto of producto, index as i" >{{producto.name}}</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b> <label for="cantidad">Cantidad *</label></b>
+                                </div>
+                                <!-- [(ngModel)]="compa.departamento" -->
+                                <div class="col-md-5">
+                                    <input id="quantity" placeholder="cantidad" disabledtype="text" name="quantity" type="number" min=1 class="form-control" [(ngModel)]="quantity" required>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <input type="submit" class="btn btn-info" value="Guardar productos" />
+                        </div>
+                    </div>
+                </form>
+                <span *ngIf="totalP > 0">{{totalP}}</span>
+
+            </div>
+        </div>
+    </div>
+</div>

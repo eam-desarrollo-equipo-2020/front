@@ -140,6 +140,12 @@ getListCategory(category): Observable<any> {
   let params = JSON.stringify(category);
   return this.htttp.get(this.url + 'prod-categories',  { headers: this.headers });
 }
+//crear orden
+createOrden(orden): Observable<any> {
+  let params = JSON.stringify(orden);
+  return this.htttp.post(this.url + 'create-order', params, { headers: this.headers });
+}
+
 
   // register user
   registerUser(email: string, pwd: string): Observable<any> {
