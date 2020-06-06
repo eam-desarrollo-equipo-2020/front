@@ -34,5 +34,14 @@ export class CategoryService {
         console.log(this.headers);
         return this._http.post<CategoryInterface>(url_api, { name, description}, { headers: this.headers }).pipe(map(data => data));
     }
+    getListCategory() {
+        let accessToken = localStorage.getItem("accessToken");
+
+        const url_api = `http://173.230.136.51:3000/api/prod-categories`;
+    
+        return this._http.get<CategoryInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
+
+
+    }
 
 }

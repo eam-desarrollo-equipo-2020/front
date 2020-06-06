@@ -130,6 +130,17 @@ getListCompany(company): Observable<any> {
   return this.htttp.get(this.url + 'list-companies',  { headers: this.headers });
 }
 
+//listar producto
+getListProduct(producto): Observable<any> {
+  let params = JSON.stringify(producto);
+  return this.htttp.post(this.url + 'list-product',params, { headers: this.headers });
+}
+//listar categoria
+getListCategory(category): Observable<any> {
+  let params = JSON.stringify(category);
+  return this.htttp.get(this.url + 'prod-categories',  { headers: this.headers });
+}
+
   // register user
   registerUser(email: string, pwd: string): Observable<any> {
     const url_api = "http://173.230.136.51:3000/api/register";

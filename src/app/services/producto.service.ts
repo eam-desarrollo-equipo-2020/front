@@ -5,6 +5,7 @@ import { Global } from './global';
 import { AuthService } from './auth.service';
 import { map } from 'rxjs/operators';
 import { CategoryInterface } from 'src/app/models/category';
+import { ProductoInterface } from '../models/producto';
 
 
 @Injectable({
@@ -45,6 +46,16 @@ export class ProductoService {
         //console.log(url_api);
         //console.log(this.headers);
         return this._http.get<CategoryInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
+
+
+    }
+    getListProduct() {
+        let accessToken = localStorage.getItem("accessToken");
+      
+        const url_api = `http://173.230.136.51:3000/api/list-product`;
+      //  console.log(url_api);
+       // console.log(this.headers);
+        return this._http.post<ProductoInterface>(url_api,{ headers: this.headers }).pipe(map(data => data));
 
 
     }

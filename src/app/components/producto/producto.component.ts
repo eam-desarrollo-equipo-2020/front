@@ -11,8 +11,10 @@ import { CategoryInterface } from 'src/app/models/category';
 })
 export class ProductoComponent implements OnInit {
   public status: string;
+  productData = {} as ProductoInterface;
   categoryData = {} as CategoryInterface;
   category: CategoryInterface[] = [];
+  producto: ProductoInterface[]=[];
 
   constructor(
     private toastr: ToastrService,
@@ -46,8 +48,25 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListCategory();
+    this.getListProduct();
   }
 
+  getListProduct(){
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListProduct().subscribe(
+      (data) => { 
+        let respuesta: any;
+        respuesta = data;
+        
+      this.producto = respuesta.products;
+      console.log(this.producto);
+       
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
+  }
 
   onSubmit(): void {
     this.authService.createProd(this.prod.name, this.prod.detail, this.prod.price, this.prod.lot, this.prod.quantity, this.prod.category)

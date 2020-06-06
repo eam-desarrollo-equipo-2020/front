@@ -68,8 +68,8 @@
                               <option>Seleccione una Opcion</option>
                               <option *ngFor="let cat of category" >{{cat.name}}</option>
                             </select>
-                          </div>
-          
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
@@ -87,16 +87,26 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th scope="col"># </th>
                                 <th scope="col">Nombre </th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Lote</th>
-                                <th scope="col">Calidad</th>
                                 <th scope="col">Categoria</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr *ngFor="let producto of producto; index as i">
+                                <th>{{ i + 1 }}</th>
+                                <td scope="row">{{ producto.name }} </td>
+                                <td scope="row">{{ producto.detail }} </td>
+                                <td scope="row">{{ producto.price }} </td>
+                                <td scope="row">{{ producto.lot }} </td>
+                                <td scope="row">{{ producto.category }} </td>
+
+                            </tr>
                         </tbody>
+
                     </table>
                 </div>
             </div>

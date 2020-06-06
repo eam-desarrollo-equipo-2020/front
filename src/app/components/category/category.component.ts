@@ -14,6 +14,8 @@ export class CategoryComponent implements OnInit {
   tittle="prueba";
   public nombre:string;
   descripcion="";
+  categoriaData= {} as CategoryInterface;
+ categoria: CategoryInterface[] = [];
 
   constructor(
     private toastr:ToastrService,  
@@ -44,7 +46,24 @@ export class CategoryComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.getListCategory();
     
+  }
+
+  getListCategory(){
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListCategory().subscribe(
+      (data) => { 
+        let respuesta: any;
+        respuesta = data;
+        
+      this.categoria = respuesta.prodCats;
+       
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
   }
   
 
