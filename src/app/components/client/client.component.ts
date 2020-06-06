@@ -16,16 +16,18 @@ import { CompanyInterface } from 'src/app/models/company';
 export class ClientComponent implements OnInit {
   public status: string;
   companyData = {} as CompanyInterface;
-  comapany: CompanyInterface[] = [];
+  clienteData = {} as ClientInterface;
+  cliente: ClientInterface[] = [];
 
 
   constructor(
     private toastr: ToastrService,
-    public authService: ClientService,
+    public authService: ClientService
   ) { }
 
   ngOnInit(): void {
     this.getListCompany();
+    this.getClients();
   }
   alert() {
     this.toastr.success('Registrado Correctamente', 'success', {
@@ -73,18 +75,34 @@ export class ClientComponent implements OnInit {
 
   }
 
+  getClients() {
+    /**Se llama al metodo de listar definido en el servicio */
+    this.authService.getListClient().subscribe(
+      (data) => {
+        let respuesta: any;
+        respuesta = data;
+        console.log(data);
+
+        this.cliente = respuesta.customers;
+        // console.log(this.comapany);
+
+
+
+      },
+      (error) => {
+        console.log("error en el servicio");
+      }
+    );
+  }
+
   getListCompany() {
     /**Se llama al metodo de listar definido en el servicio */
     this.authService.getListCompany().subscribe(
       (data) => {
         let respuesta: any;
         respuesta = data;
-        console.log(data);
-        
-        this.comapany = respuesta.companies;
-           // console.log(this.comapany);
 
-
+        this.companyData = respuesta.companies;
 
       },
       (error) => {

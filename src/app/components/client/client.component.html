@@ -39,7 +39,7 @@
                             <b> <label for="sel1">Empresa *</label></b>
                             <select id="company" name="company" type="text" placeholder="Empresa" class="form-control" #phone="ngModel" [(ngModel)]="cli.company" >
                               <option>Seleccione una Opcion</option>
-                              <option *ngFor="let com of comapany">{{com.razon_social}}</option>
+                              <option *ngFor="let com of companyData">{{com.razon_social}}</option>
                             </select>
                           </div>
                
@@ -50,6 +50,30 @@
                         </div>
                     </fieldset>
                 </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            
+                            <th scope="col">Nombre </th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Empresa</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Cliente of cliente; index as i">
+                            <th style="display: none;">{{ i + 1 }}</th>
+                            <td scope="row">{{ Cliente.name }} </td>
+                            <td scope="row">{{ Cliente.id_card }} </td>
+                            <td scope="row">{{ Cliente.company }} </td>
+                           
+        
+                        </tr>
+                    </tbody>
+        
+                </table>
             </div>
+           
         </div>
+       
     </div>

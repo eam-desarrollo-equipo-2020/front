@@ -5,6 +5,7 @@ import { Global } from './global';
 import { AuthService } from './auth.service';
 import { map } from 'rxjs/operators';
 import { CompanyInterface } from 'src/app/models/company';
+import { ClientInterface } from '../models/client';
 
 
 
@@ -48,6 +49,16 @@ export class ClientService {
        // console.log(url_api);
         //console.log(this.headers);
         return this._http.get<CompanyInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
+
+
+    }
+    getListClient() {
+        let accessToken = localStorage.getItem("accessToken");
+        //    console.log(accessToken);
+        const url_api = `http://173.230.136.51:3000/api/customer`;
+       // console.log(url_api);
+        //console.log(this.headers);
+        return this._http.get<ClientInterface>(url_api,  { headers: this.headers }).pipe(map(data => data));
 
 
     }
